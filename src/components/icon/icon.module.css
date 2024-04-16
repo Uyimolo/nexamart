@@ -1,0 +1,15 @@
+.icon.small {
+    font-size: 1em;
+}
+
+.icon.medium {
+    font-size: 1.2em;
+}
+
+.icon.large {
+    font-size: 1.5em;
+}
+
+.icon.white {
+    color: var(--white);
+}

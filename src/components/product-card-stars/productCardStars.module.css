@@ -1,0 +1,29 @@
+.stars_container {
+  display: flex;
+}
+
+.icon {
+  width: 0.8rem;
+  color: var(--very-light-gray);
+}
+
+.icon.active {
+  color: goldenrod;
+}
+
+.star.fraction {
+  position: relative;
+  width: 0.8rem;
+  /* height: .5rem; */
+}
+
+.icon.half {
+  color: goldenrod;
+  width: 0.8rem;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  clip: rect(0, 0.4rem, 1.5rem, 0);
+}

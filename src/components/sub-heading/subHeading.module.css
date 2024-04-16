@@ -1,0 +1,17 @@
+.heading_text {
+  color: var(--secondary-color);
+  position: relative;
+  padding: 0.3rem 1.7rem;
+}
+
+.heading_text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 15px;
+  background-color: var(--secondary-color);
+  transition: 1s;
+  border-radius: 0.3rem;
+}
