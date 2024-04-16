@@ -28,18 +28,15 @@ h1 {
 }
 
 @media (min-width: 768px) {
-
   h1 {
     font-size: 3em;
   }
 
   .page {
-    gap: 5rem 0;
+    gap: 2rem 0;
   }
 }
 
 @media (min-width: 1024px) {
-    :root {
-    font-size: 17px;
-  }
+ 
 }

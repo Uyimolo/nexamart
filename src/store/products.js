@@ -19,7 +19,7 @@ export const useProductStore = create((set) => ({
     try {
       set((state) => ({ ...state, productsLoading: true }));
       const response = await fetch(
-        'https://api.escuelajs.co/api/v1/products?offset=0&limit=6'
+        'https://api.escuelajs.co/api/v1/products?offset=0&limit=12'
       );
       if (response.ok) {
         const data = await response.json();

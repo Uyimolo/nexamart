@@ -2,8 +2,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style from './productCardStars.module.css';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-const ProductCardStars = ({ rating, totalStars = 5 }) => {
-  // console.log(rating);
+const ProductCardStars = ({  totalStars = 5 }) => {
+
+  // get random rating (the api doesnt provide rating information for products)
+
+  const rating = (Math.random() * (totalStars - 2)) + 2 ;
   // Calculate the integer part of the rating
   const integerRating = Math.floor(rating);
   // Calculate the fractional part of the rating

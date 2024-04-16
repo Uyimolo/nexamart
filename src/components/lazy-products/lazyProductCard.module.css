@@ -15,11 +15,22 @@
   place-content: center;
   background-color: var(--very-light-gray);
   border-radius: 0.3rem;
+  animation: lazy-animation 2s ease-in-out infinite;
+
+  /* animation-direction: reverse; */
+  /* transition: 2s; */
 }
 
-.product_image img {
-  width: 100%;
-  height: 100%;
+@keyframes lazy-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .product_info {
@@ -28,14 +39,19 @@
   gap: 0.2rem;
 }
 
-.product_price_and_rating {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
+.price {
+  margin-top: 0.5rem;
+  height: 1rem;
+  background-color: var(--very-light-gray);
+  animation: lazy-animation 2s ease-in-out infinite;
+  border-radius: 0.3rem;
 }
 
-.price {
-  color: var(--secondary-color);
+.name {
+  height: 2rem;
+  background-color: var(--very-light-gray);
+  animation: lazy-animation 2s ease-in-out infinite;
+  border-radius: 0.3rem;
 }
 
 @media (min-width: 768px) {
