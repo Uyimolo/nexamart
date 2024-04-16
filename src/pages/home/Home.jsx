@@ -7,13 +7,13 @@ import FlashSales from '../../components/flash-sales/FlashSales';
 const Home = () => {
   return (
     <div className='page home'>
-      
-        <LargeHeader />
+      <LargeHeader />
+      {/* categories */}
+      <Categories />
 
-        <FlashSales />
+      <FlashSales />
 
-        {/* <LargeHeader /> */}
-
+      {/* <LargeHeader /> */}
 
       <ProductsList />
     </div>

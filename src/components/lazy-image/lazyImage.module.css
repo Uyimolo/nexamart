@@ -1,0 +1,8 @@
+.lazy_image { 
+    width: 100%;
+    aspect-ratio: 1/1;
+    height: auto;
+    background-color: var(--very-light-gray);
+    display: grid;
+    place-content: center;
+}
