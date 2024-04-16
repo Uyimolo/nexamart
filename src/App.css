@@ -27,6 +27,8 @@ h1 {
   font-size: 1.5rem;
 }
 
+
+
 @media (min-width: 768px) {
   h1 {
     font-size: 3em;
@@ -38,5 +40,4 @@ h1 {
 }
 
 @media (min-width: 1024px) {
- 
 }

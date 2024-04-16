@@ -1,5 +1,7 @@
+import LazyLoad from 'react-lazyload';
 import ProductCardStars from '../product-card-stars/ProductCardStars';
 import style from './productCard.module.css';
+import LazyImage from '../lazy-image/LazyImage';
 const ProductCard = ({ product, purpose }) => {
   const imagesString = product.images.join(',');
 
@@ -21,11 +23,14 @@ const ProductCard = ({ product, purpose }) => {
       className={`${style.product_card} ${
         purpose === 'carousel' ? style.carousel : ''
       }`}>
-      <div className={style.product_card_top}>
-        <div className={style.product_image}>
-          <img src={firstImage} alt={product?.title} />
+      <LazyLoad height='100%' offset={-200} placeholder={<LazyImage />}>
+        <div className={style.product_card_top}>
+          <div className={style.product_image}>
+            <img src={firstImage} alt={product?.title} />
+          </div>
         </div>
-      </div>
+      </LazyLoad>
+
       <div className={style.product_info}>
         <p className={style.name}>{product?.title}</p>
         <div className={style.product_price_and_rating}>
