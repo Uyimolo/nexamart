@@ -1,0 +1,20 @@
+.cart_icon {
+    position: relative;
+}
+
+.cart_volume {
+    position: absolute;
+    /* top: -2rem; */
+    right: -.5rem;
+    background-color: var(--secondary-color);
+    min-width: 1rem;
+    min-height: 1rem;
+    aspect-ratio: 1/1;
+    padding: .4rem;
+    border-radius: 50%;
+    font-size: var(--small-text);
+    color: var(--white);
+    display: grid;
+    place-content: center;
+    display: none;
+}

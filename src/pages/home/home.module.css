@@ -1,0 +1,22 @@
+@media (min-width: 768px) {
+  .categories_and_header {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2rem;
+    padding: 1rem;
+    align-items: start;
+
+  }
+}
+
+@media (min-width: 1024px) {
+  .categories_and_header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 0rem 5rem;
+  }
+}
+
+
