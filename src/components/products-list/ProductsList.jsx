@@ -5,8 +5,9 @@ import SubHeading from '../sub-heading/SubHeading';
 import style from './productsList.module.css';
 import ProductCard from '../product-card/ProductCard';
 // import Filter from '../filter/Filter';
-import Icon from '../icon/Icon';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+// import Icon from '../icon/Icon';
+// import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import LazyProductCard from '../lazy-products/LazyProductCard';
 
 const ProductsList = () => {
   const [productList, setProductList] = useState([]);
@@ -29,7 +30,14 @@ const ProductsList = () => {
 
       <div className={style.products_container}>
         {products &&
-          products.map((product) => <ProductCard product={product} />)}
+          products.map((product) => (
+            <ProductCard purpose='grid' product={product} />
+          ))}
+
+        {!products.length > 0 &&
+          [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((product) => (
+            <LazyProductCard purpose='grid' product={product} />
+          ))}
       </div>
     </div>
   );

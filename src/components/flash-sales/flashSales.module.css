@@ -1,0 +1,36 @@
+.flash_sales {
+  padding: 1rem var(--mobile-padding) 0;
+  /* background-color: var(--very-light-gray); */
+}
+
+swiper-slide {
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+/* swiper-container::after {
+  content: '';
+  position: absolute;
+  height: 120%;
+  width: 2rem;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.685),
+    rgb(188, 184, 250)
+  );
+  right: 0;
+  top: -2rem;
+  z-index: 1;
+} */
+
+@media (min-width: 768px) {
+  .flash_sales {
+    padding: 1rem 1rem 0 var(--tablet-padding);
+  }
+}
+
+@media (min-width: 1024px) {
+  .flash_sales {
+    padding: 1rem 2rem 0 var(--desktop-padding);
+  }
+}

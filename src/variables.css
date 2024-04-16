@@ -9,4 +9,7 @@
   --white: #ffffff;
   --small-text: 0.8em;
   --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.534);
+  --mobile-padding : 1rem;
+  --tablet-padding: 3rem;
+  --desktop-padding: 5rem;
 }
