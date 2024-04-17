@@ -72,5 +72,4 @@ export const useProductStore = create((set) => ({
     } catch (error) {}
   },
 }));
-
 export const useProductsSelectors = createSelectors(useProductStore);

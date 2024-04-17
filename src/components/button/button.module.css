@@ -1,9 +1,9 @@
 button {
-    background-color: var(--very-light-gray);
+    /* background-color: var(--very-light-gray); */
+    background-color: var(--white);
     padding: .5rem 1rem;
     border: none;
-    background-color:#40bd6a ;
-    color: var(--white);
+    /* color: var(--white); */
     display: flex;
     align-items: center;
     gap: .5rem;

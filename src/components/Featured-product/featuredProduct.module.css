@@ -1,10 +1,7 @@
 .large_header {
   position: relative;
-  /* padding: 1rem; */
-  /* margin: 0 1rem; */
-
   height: 16rem;
-  background-color:#1c1d54;
+  background-color: #40bd6a ;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,6 +25,7 @@
   width: 100%;
   padding: 0 1rem;
   gap: 2rem;
+  z-index: 1;
 }
 
 .header_details p,
@@ -59,12 +57,11 @@
     align-items: center;
     margin: 0 3rem;
   }
-
 }
 
 @media (min-width: 1024px) {
   .large_header {
-    aspect-ratio:6/2;
+    aspect-ratio: 6/2;
     margin: 0 5rem;
     padding: 0 3rem;
     /* height: auto;

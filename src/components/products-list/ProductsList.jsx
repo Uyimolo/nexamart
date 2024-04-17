@@ -12,8 +12,7 @@ import LazyProductCard from '../lazy-products/LazyProductCard';
 const ProductsList = () => {
   const [productList, setProductList] = useState([]);
   const products = useProductsSelectors.use.products();
-
- 
+  const productsLoading = useProductsSelectors.use.productsLoading();
 
   return (
     <div className={style.products_list}>
@@ -21,18 +20,18 @@ const ProductsList = () => {
       <div className={style.header}>
         <ExpandedSubHeading text='Explore Our Products' />
         <p>See all</p>
-      </div>
+      </div> 
       {/* <Categories /> */}
       {/* <Filter /> */}
 
       <div className={style.products_container}>
         {products
           ? products.map((product) => (
-              <ProductCard purpose='grid' product={product} />
+              <ProductCard purpose='grid' product={product} key={product.id} />
             ))
-          : !products.length > 0 && 
+          : !products.length > 0 &&
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((product) => (
-              <LazyProductCard purpose='grid' product={product} />
+              <LazyProductCard purpose='grid' product={product} key={product} />
             ))}
       </div>
     </div>
