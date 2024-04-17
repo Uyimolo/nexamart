@@ -1,14 +1,14 @@
-import style from  './button.module.css'
+import style from './button.module.css';
 
 import Icon from '../icon/Icon';
 
-const Button = ( {icon}) => {
+const Button = ({ icon, text }) => {
   return (
     <button className={style.cta}>
-      Shop Now
-     {icon && <Icon icon={icon} color='white' />}
+      {text}
+      {icon && <Icon icon={icon} />}
     </button>
   );
-}
+};
 
-export default Button
+export default Button;

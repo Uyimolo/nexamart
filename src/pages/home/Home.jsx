@@ -3,6 +3,7 @@ import LargeHeader from '../../components/large-header-image/LargeHeader';
 import Categories from '../../components/categories/Categories';
 import ProductsList from '../../components/products-list/ProductsList';
 import FlashSales from '../../components/flash-sales/FlashSales';
+import FeaturedProduct from '../../components/Featured-product/FeaturedProduct';
 
 const Home = () => {
   return (
@@ -12,6 +13,8 @@ const Home = () => {
       <Categories />
 
       <FlashSales />
+
+      <FeaturedProduct />
 
       {/* <LargeHeader /> */}
 

@@ -2,7 +2,11 @@ import LazyLoad from 'react-lazyload';
 import ProductCardStars from '../product-card-stars/ProductCardStars';
 import style from './productCard.module.css';
 import LazyImage from '../lazy-image/LazyImage';
+import { Link } from 'react-router-dom';
 const ProductCard = ({ product, purpose }) => {
+  // const formattedProductName = product.title.replace(/\s/g, '-');
+  // console.log(formattedProductName);
+
   const imagesString = product.images.join(',');
 
   // for malformed image arrays. REMEMBER TO LEAVE A COMPLAINT AFTER THANKING THEM FOR THIS AWESOME API
@@ -24,11 +28,13 @@ const ProductCard = ({ product, purpose }) => {
         purpose === 'carousel' ? style.carousel : ''
       }`}>
       <LazyLoad height='100%' offset={-200} placeholder={<LazyImage />}>
-        <div className={style.product_card_top}>
+        <Link
+          to={`/products/${product.id}`}
+          className={style.product_card_top}>
           <div className={style.product_image}>
             <img src={firstImage} alt={product?.title} />
           </div>
-        </div>
+        </Link>
       </LazyLoad>
 
       <div className={style.product_info}>

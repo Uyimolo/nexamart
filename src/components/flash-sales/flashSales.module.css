@@ -4,6 +4,11 @@
   border-top: 1px solid var(--very-light-gray);
 }
 
+swiper-container {
+  position: relative;
+  overflow: visible;
+}
+
 swiper-slide {
   padding-bottom: 1rem;
   /* position: relative; */
