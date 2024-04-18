@@ -1,10 +1,10 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import style from './productDetails.module.css';
 import ProductCardStars from '../product-card-stars/ProductCardStars';
 import Icon from '../icon/Icon';
-import Button from '../button/Button'
+import Button from '../button/Button';
 import { faHeart, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
-const ProductDetails = ({ product }) => {
+const ProductDetails = ({ product, handleSetQuantity, quantity , setQuantity}) => {
   return (
     <div className={style.details}>
       <div className={style.product_info}>
@@ -20,11 +20,21 @@ const ProductDetails = ({ product }) => {
       </div>
       <div className={style.purchase_info}>
         <div className={style.quantity_container}>
-          <div className={style.decrease}>
+          <div
+            className={style.decrease}
+            onClick={() => handleSetQuantity('decrease')}>
             <Icon color='white' icon={faMinus} size='large' />
           </div>
-          <input type='number' name='quantity' id='quantity' />
-          <div className={style.increase}>
+          <input
+            type='number'
+            name='quantity'
+            id='quantity'
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+          <div
+            className={style.increase}
+            onClick={() => handleSetQuantity('increase')}>
             <Icon color='white' icon={faPlus} size='large' />
           </div>
         </div>

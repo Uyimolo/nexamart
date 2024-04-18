@@ -1,18 +1,25 @@
-import { useEffect, useState } from 'react';
-import { useProductsSelectors } from '../../store/products';
 import ExpandedSubHeading from '../expanded-sub-heading/ExpandedSubHeading';
 import SubHeading from '../sub-heading/SubHeading';
 import style from './productsList.module.css';
 import ProductCard from '../product-card/ProductCard';
-// import Filter from '../filter/Filter';
-// import Icon from '../icon/Icon';
-// import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import LazyProductCard from '../lazy-products/LazyProductCard';
+import useReactQuery from '../../custom-hooks/useReactQuery';
 
 const ProductsList = () => {
-  const [productList, setProductList] = useState([]);
-  const products = useProductsSelectors.use.products();
-  const productsLoading = useProductsSelectors.use.productsLoading();
+  const fetchProducts = async () => {
+    const response = await fetch(
+      'https://api.escuelajs.co/api/v1/products?offset=0&limit=12'
+    );
+    return await response.json();
+  };
+
+  const {
+    data: products,
+    isLoading,
+    error,
+  } = useReactQuery(['products'], fetchProducts);
+
+  if (error) return <div className=''></div>;
 
   return (
     <div className={style.products_list}>
@@ -20,16 +27,14 @@ const ProductsList = () => {
       <div className={style.header}>
         <ExpandedSubHeading text='Explore Our Products' />
         <p>See all</p>
-      </div> 
-      {/* <Categories /> */}
-      {/* <Filter /> */}
+      </div>
 
       <div className={style.products_container}>
-        {products
+        {!isLoading
           ? products.map((product) => (
               <ProductCard purpose='grid' product={product} key={product.id} />
             ))
-          : !products.length > 0 &&
+          :
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((product) => (
               <LazyProductCard purpose='grid' product={product} key={product} />
             ))}

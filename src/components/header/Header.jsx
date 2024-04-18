@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Logo from '../logo/Logo';
 import style from './header.module.css';
 import Icon from '../icon/Icon';
@@ -19,7 +19,7 @@ const Header = () => {
         <Logo />
 
         <div>
-          <Navigation showMenu={showMenu} />
+          <Navigation showMenu={showMenu} setShowMenu={setShowMenu} />
           <div
             className={`${style.curtain} ${!showMenu ? '' : style.active}`}
             onClick={() => handleDisplayMenu(false)}></div>

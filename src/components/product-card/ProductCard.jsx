@@ -37,6 +37,8 @@ const ProductCard = ({ product, purpose }) => {
         </Link>
       </LazyLoad>
 
+      {/* <button className={style.add_to_cart}>Add To Cart</button> */}
+
       <div className={style.product_info}>
         <p className={style.name}>{product?.title}</p>
         <div className={style.product_price_and_rating}>

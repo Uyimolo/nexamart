@@ -1,52 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router';
 import style from './product.module.css';
 import Lightbox from '../../../components/lightbox/Lightbox';
 import ProductDetails from '../../../components/product_details/ProductDetails';
+import useReactQuery from '../../../custom-hooks/useReactQuery';
 
 const Product = () => {
   const { productId } = useParams();
-  // const formattedProductName = productName.replace(/-/g, ' ');
-  const [productData, setProductData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+
+  const [quantity, setQuantity] = useState(0);
 
   const fetchProduct = async () => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const response = await fetch(
-        `https://api.escuelajs.co/api/v1/products/${productId}`
-      );
-
-      if (!response.ok) {
-        throw new Error(`Error fetching product: ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      setProductData(data);
-      // console.log(data);
-    } catch (error) {
-      console.error('Error fetching product:', error);
-      setError(error.message);
-    } finally {
-      setIsLoading(false);
-    }
+    const response = await fetch(
+      `https://api.escuelajs.co/api/v1/products/${productId}`
+    );
+    return await response.json();
   };
 
-  useEffect(() => {
-    fetchProduct();
-  }, [productId]);
+  const {
+    data: product,
+    isLoading,
+    error,
+  } = useReactQuery(['product'], fetchProduct);
+
+  const handleSetQuantity = (mode) => {
+    if (mode === 'increase') {
+      setQuantity(quantity + 1);
+    } else {
+      if (quantity !== 0) {
+        setQuantity(quantity - 1);
+      }
+    }
+  };
 
   return (
     <div className={`${style.product_container} page`}>
       {isLoading && <p>Loading product details...</p>}
       {error && <p>Error: {error}</p>}
-      {productData && (
+      {product && (
         <div className={style.product_info}>
-          <Lightbox imagesArray={productData.images} />
-          <ProductDetails product={productData} />
+          <Lightbox imagesArray={product.images} />
+          <ProductDetails
+            product={product}
+            quantity={quantity}
+            setQuantity={setQuantity}
+            handleSetQuantity={handleSetQuantity}
+          />
         </div>
       )}
     </div>
