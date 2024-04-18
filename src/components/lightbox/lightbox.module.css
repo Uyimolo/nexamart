@@ -1,12 +1,16 @@
+.lightbox_container {
+  padding: 1rem;
+}
+
 .lightbox {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   gap: 0.5em;
 }
 
 .current_image {
   width: 100%;
+  aspect-ratio: 1/1;
 }
 
 .current_image img {
@@ -22,19 +26,25 @@
 .thumbnail {
   width: 22.5%;
   border-radius: 0.5rem;
+  aspect-ratio: 1/1;
 }
 
 @media (min-width: 768px) {
+  .lightbox_container {
+    padding: 0 var(--tablet-padding);
+  }
+
   .lightbox {
     flex-direction: row-reverse;
     gap: 1rem;
-    max-width: 77%;
+    max-width: 85%;
     margin: auto;
   }
 
   .current_image {
     width: 100%;
   }
+
   .thumbnails {
     flex-direction: column;
     aspect-ratio: 1/1;

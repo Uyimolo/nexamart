@@ -13,3 +13,7 @@
 .icon.white {
     color: var(--white);
 }
+
+.icon.primary {
+    color: var(--secondary-color);
+}

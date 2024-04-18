@@ -4,12 +4,12 @@
   --text-black: #171717;
   --secondary-light: #ec7575;
   --very-light-gray: rgb(221, 221, 221);
-  --green: #00ff66;
+  --green: #40bd6a;
   --gold: #ffad33;
   --white: #ffffff;
   --small-text: 0.8em;
   --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.534);
-  --mobile-padding : 1rem;
-  --tablet-padding: 3rem;
+  --mobile-padding: 1rem;
+  --tablet-padding: 5rem;
   --desktop-padding: 5rem;
 }
