@@ -6,7 +6,7 @@ const Icon = ({ icon, onClick, size, color }) => {
     <FontAwesomeIcon
       className={`${style.icon} ${
         size === 'large' ? style.large : size === 'medium' ? style.medium : ''
-      } ${color === 'white' ? style.white : ''}`}
+      } ${color === 'white' ? style.white : color === 'primary' ? style.primary :''}`}
       icon={icon}
       onClick={onClick}
     />
