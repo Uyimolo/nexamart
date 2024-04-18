@@ -1,4 +1,4 @@
-button {
+.cta {
     background-color: var(--very-light-gray);
     background-color: var(--white);
     padding: .5rem 2rem;
@@ -9,7 +9,7 @@ button {
     border-radius: .5rem;
 }
 
-button.primary {
+.cta.primary {
     background-color: var(--secondary-color);
     color: var(--white);
 }

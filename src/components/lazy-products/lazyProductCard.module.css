@@ -16,6 +16,7 @@
   place-content: center;
   background-color: var(--very-light-gray);
   border-radius: 0.3rem;
+  animation: lazy-animation 2s ease-in-out infinite;
 }
 
 @keyframes lazy-animation {
@@ -40,14 +41,14 @@
   margin-top: 0.5rem;
   height: 1rem;
   background-color: var(--very-light-gray);
-  /* animation: lazy-animation 2s ease-in-out infinite; */
+  animation: lazy-animation 2s ease-in-out infinite;
   border-radius: 0.3rem;
 }
 
 .name {
   height: 2rem;
   background-color: var(--very-light-gray);
-  /* animation: lazy-animation 2s ease-in-out infinite; */
+  animation: lazy-animation 2s ease-in-out infinite;
   border-radius: 0.3rem;
 }
 

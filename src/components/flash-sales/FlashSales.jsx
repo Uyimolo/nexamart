@@ -1,17 +1,28 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import style from './flashSales.module.css';
 import SubHeading from '../sub-heading/SubHeading';
 import ExpandedSubHeading from '../expanded-sub-heading/ExpandedSubHeading';
-import { useProductsSelectors } from '../../store/products';
 import { register } from 'swiper/element/bundle';
 import ProductCard from '../product-card/ProductCard';
 import LazyProductCard from '../lazy-products/LazyProductCard';
+import useReactQuery from '../../custom-hooks/useReactQuery';
 register();
 
 const FlashSales = () => {
-  const products = useProductsSelectors.use.products();
-  const productsLoading = useProductsSelectors.use.productsLoading();
   const swiperRef = useRef();
+
+  const fetchFlashSalesProducts = async () => {
+    const response = await fetch(
+      'https://api.escuelajs.co/api/v1/products?offset=0&limit=12'
+    );
+    return await response.json();
+  };
+
+  const {
+    data: flashSaleProducts,
+    isLoading,
+    error,
+  } = useReactQuery(['products'], fetchFlashSalesProducts);
 
   useEffect(() => {
     const swiperContainer = swiperRef.current;
@@ -54,6 +65,8 @@ const FlashSales = () => {
     swiperContainer.initialize();
   }, []);
 
+  if (error) return <div className=''>{error}</div>;
+
   return (
     <div className={style.flash_sales}>
       <SubHeading text={`Todays's`} />
@@ -63,13 +76,13 @@ const FlashSales = () => {
 
       <div className={style.products_container}>
         <swiper-container ref={swiperRef} init='false'>
-          {!productsLoading &&
-            products.map((product) => (
+          {!isLoading &&
+            [...flashSaleProducts].reverse().map((product) => (
               <swiper-slide key={product.id}>
                 <ProductCard product={product} purpose='carousel' />
               </swiper-slide>
             ))}
-          {productsLoading &&
+          {isLoading &&
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((product) => (
               <swiper-slide key={product}>
                 <LazyProductCard purpose='carousel' product={product} />

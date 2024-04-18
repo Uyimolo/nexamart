@@ -22,6 +22,14 @@
   height: 100%;
 }
 
+/* .add_to_cart {
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  height: 2rem;
+  border-radius: .5rem;
+} */
+
 .product_info {
   display: flex;
   flex-direction: column;

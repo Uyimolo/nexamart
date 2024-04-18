@@ -1,4 +1,3 @@
-import React from 'react';
 import style from './featuredProduct.module.css';
 import image from '../../assets/images/earphone.png';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
