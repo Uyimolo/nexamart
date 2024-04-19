@@ -59,10 +59,13 @@
 @media (min-width: 1024px) {
   .lightbox_container {
     width: 50%;
-    padding-left: var(--desktop-padding);
+    padding: 0 0 0 var(--desktop-padding);
+   
   }
 
   .lightbox {
     max-width: 100%;
+    position: sticky;
+    top: 0rem;
   }
 }

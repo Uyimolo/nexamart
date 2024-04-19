@@ -1,14 +1,18 @@
-import style from './cartIcon.module.css'
+import style from './cartIcon.module.css';
 import Icon from '../icon/Icon';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { useCartSelectors } from '../../store/cartStore';
+import { Link } from 'react-router-dom';
 
 const CartIcon = () => {
-  return (
-    <div className={style.cart_icon}>
-      <Icon icon={faCartShopping} size='large' />
-      {/* <p className={style.cart_volume}>1347</p> */}
-    </div>
-  );
-}
+  const cart = useCartSelectors.use.cart();
 
-export default CartIcon
+  return (
+    <Link to='/cart' className={style.cart_icon}>
+      <Icon icon={faCartShopping} size='large' />
+      {cart && <p className={style.cart_volume}>{cart.length}</p>}
+    </Link>
+  );
+};
+
+export default CartIcon;

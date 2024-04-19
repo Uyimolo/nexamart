@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import LazyLoad from 'react-lazyload';
 import ProductCardStars from '../product-card-stars/ProductCardStars';
 import style from './productCard.module.css';

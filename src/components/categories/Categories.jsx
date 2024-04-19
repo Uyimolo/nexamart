@@ -2,7 +2,7 @@ import style from './categories.module.css';
 import SubHeading from '../sub-heading/SubHeading';
 import CategoryCard from '../category-card/CategoryCard';
 import LazyCategoryCard from '../lazy-category-card/LazyCategoryCard';
-import useReactQuery from '../../custom-hooks/useReactQuery';
+import useReactQuery from '../../custom-hooks-and-arrays/useReactQuery';
 
 const Categories = () => {
   const fetchCategories = async () => {

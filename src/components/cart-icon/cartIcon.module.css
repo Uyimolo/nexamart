@@ -1,20 +1,19 @@
 .cart_icon {
-    position: relative;
+  position: relative;
 }
 
 .cart_volume {
-    position: absolute;
-    /* top: -2rem; */
-    right: -.5rem;
-    background-color: var(--secondary-color);
-    min-width: 1rem;
-    min-height: 1rem;
-    aspect-ratio: 1/1;
-    padding: .4rem;
-    border-radius: 50%;
-    font-size: var(--small-text);
-    color: var(--white);
-    display: grid;
-    place-content: center;
-    display: none;
+  position: absolute;
+  top: -1rem;
+  right: -0.5rem;
+  background-color: var(--secondary-color);
+  width: 1.5rem;
+  /* height: 1rem; */
+  aspect-ratio: 1/1;
+  /* padding: .4rem; */
+  border-radius: 50%;
+  font-size: 0.6em;
+  color: var(--white);
+  display: grid;
+  place-content: center;
 }

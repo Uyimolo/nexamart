@@ -4,8 +4,9 @@ import App from './App.jsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/home/Home.jsx';
-import Product from './pages/home/product/Product.jsx';
+import Product from './pages/product/Product.jsx';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import Cart from './pages/cart/Cart.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: '/products/:productId', element: <Product /> },
+      { path: '/cart', element: <Cart /> },
     ],
   },
 ]);

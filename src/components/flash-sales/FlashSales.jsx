@@ -5,7 +5,7 @@ import ExpandedSubHeading from '../expanded-sub-heading/ExpandedSubHeading';
 import { register } from 'swiper/element/bundle';
 import ProductCard from '../product-card/ProductCard';
 import LazyProductCard from '../lazy-products/LazyProductCard';
-import useReactQuery from '../../custom-hooks/useReactQuery';
+import useReactQuery from '../../custom-hooks-and-arrays/useReactQuery';
 register();
 
 const FlashSales = () => {
