@@ -7,10 +7,16 @@
     align-items: center;
     gap: .5rem;
     border-radius: .5rem;
+    font-size: 1em;
+    cursor: pointer;
 }
 
-.cta.primary {
+.cta.secondary {
     background-color: var(--secondary-color);
     color: var(--white);
+}
+
+.cta.full {
+    width: 100%;
 }
 

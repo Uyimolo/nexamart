@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import style from './icon.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Icon = ({ icon, onClick, size, color }) => {
+const Icon = ({ icon, onClick, size, color, title }) => {
   return (
     <FontAwesomeIcon
       className={`${style.icon} ${
@@ -9,6 +10,7 @@ const Icon = ({ icon, onClick, size, color }) => {
       } ${color === 'white' ? style.white : color === 'primary' ? style.primary :''}`}
       icon={icon}
       onClick={onClick}
+      title={title}
     />
   );
 };
