@@ -15,6 +15,7 @@ const Categories = () => {
     isLoading,
     error,
   } = useReactQuery(['categories'], fetchCategories);
+  console.log(categories)
 
   if (error) return <div>{error}</div>; // todo: create a better component for showing query error message
 

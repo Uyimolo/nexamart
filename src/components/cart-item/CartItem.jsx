@@ -4,15 +4,16 @@ import Icon from '../icon/Icon';
 import style from './cartItem.module.css';
 import Quantity from '../quantity/Quantity';
 import { useCartSelectors } from '../../store/cartStore';
+import { Link } from 'react-router-dom';
 
 const CartItem = ({ product }) => {
   const removeFromCart = useCartSelectors.use.removeFromCart();
 
   return (
     <div className={style.cart_item} key={product.id}>
-      <div className={style.cart_item_image}>
+      <Link to={`/products/${product.id}`} className={style.cart_item_image}>
         <img src={product.image} alt={product.name} className={style.image} />
-      </div>
+      </Link>
       <div className={style.cart_item_info}>
         <p className={style.cart_item_name}>{product.title}</p>
         <div className={style.price_available}>
