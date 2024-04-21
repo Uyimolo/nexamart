@@ -1,32 +1,21 @@
+/* eslint-disable react/prop-types */
 import ExpandedSubHeading from '../expanded-sub-heading/ExpandedSubHeading';
 import SubHeading from '../sub-heading/SubHeading';
 import style from './productsList.module.css';
 import ProductCard from '../product-card/ProductCard';
 import LazyProductCard from '../lazy-products/LazyProductCard';
-import useReactQuery from '../../custom-hooks-and-arrays/useReactQuery';
 
-const ProductsList = () => {
-  const fetchProducts = async () => {
-    const response = await fetch(
-      'https://api.escuelajs.co/api/v1/products?offset=0&limit=12'
-    );
-    return await response.json();
-  };
-
-  const {
-    data: products,
-    isLoading,
-    error,
-  } = useReactQuery(['products'], fetchProducts);
-
+const ProductsList = ({ error, isLoading, products, subHeadings }) => {
   if (error) return <div className=''></div>;
 
   return (
     <div className={style.products_list}>
-      <SubHeading text='Our Products' />
+      {subHeadings && subHeadings[0] && <SubHeading text={subHeadings[0]} />}
       <div className={style.header}>
-        <ExpandedSubHeading text='Explore Our Products' />
-        <p>See all</p>
+        {subHeadings && subHeadings[1] && (
+          <ExpandedSubHeading text={subHeadings[1]} />
+        )}
+        {subHeadings && <p>See all</p>}
       </div>
 
       <div className={style.products_container}>
