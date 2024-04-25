@@ -8,6 +8,28 @@
   gap: 0.5em;
 }
 
+.lightbox_loading .current_image {
+  background-color: var(--very-light-gray);
+  animation: lazy-animation 2s ease-in-out infinite;
+}
+
+.lightbox_loading .thumbnail {
+  background-color: var(--very-light-gray);
+  animation: lazy-animation 2s ease-in-out infinite;
+}
+
+@keyframes lazy-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .current_image {
   width: 100%;
   border: 1px solid var(--very-light-gray);
@@ -47,7 +69,6 @@
   .lightbox {
     flex-direction: row-reverse;
     gap: 1rem;
-    
   }
 
   .current_image {
