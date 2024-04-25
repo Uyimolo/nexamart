@@ -7,27 +7,13 @@ const AddToCart = ({ product }) => {
   const addToCart = useCartSelectors.use.addToCart();
   const cart = useCartSelectors.use.cart();
 
-  const imagesString = product.images.join(',');
-
-  // handle malformed image arrays.
-  const regex = /"([^"]*)"/g;
-  let match;
-  const validImages = [];
-
-  while ((match = regex.exec(imagesString))) {
-    validImages.push(match[1]);
-  }
-
-  const firstImage =
-    validImages.length > 0 ? validImages[0] : product.images[0];
-
   const handleAddToCart = () => {
     if (cart) {
       const newCartObject = {
         id: product.id,
         title: product.title,
         price: product.price,
-        image: firstImage,
+        image: product.thumbnail,
         quantity: 1,
       };
       addToCart(newCartObject);
@@ -42,6 +28,7 @@ const AddToCart = ({ product }) => {
       width='full'
       iconSize='large'
       onClick={handleAddToCart}
+      disabled={product.stock === 0}
     />
   );
 };

@@ -10,11 +10,19 @@
 
 .current_image {
   width: 100%;
+  border: 1px solid var(--very-light-gray);
+  border-radius: 0.5rem;
   aspect-ratio: 1/1;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
 }
 
 .current_image img {
+  /* object-fit: cover; */
   width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
   border-radius: 0.5rem;
 }
 
@@ -27,6 +35,8 @@
   width: 22.5%;
   border-radius: 0.5rem;
   aspect-ratio: 1/1;
+  object-fit: cover;
+  border: 2px solid var(--very-light-gray);
 }
 
 @media (min-width: 768px) {
@@ -37,20 +47,20 @@
   .lightbox {
     flex-direction: row-reverse;
     gap: 1rem;
-    max-width: 85%;
-    margin: auto;
+    
   }
 
   .current_image {
     width: 100%;
+    object-fit: fill;
   }
 
   .thumbnails {
     flex-direction: column;
-    aspect-ratio: 1/1;
     width: 22.5%;
+    align-items: center;
+    justify-content: center;
   }
-
   .thumbnail {
     width: 100%;
   }
@@ -60,7 +70,6 @@
   .lightbox_container {
     width: 50%;
     padding: 0 0 0 var(--desktop-padding);
-   
   }
 
   .lightbox {

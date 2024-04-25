@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import style from './lightbox.module.css';
 
 const Lightbox = ({ imagesArray }) => {
+  console.log(imagesArray);
   const [currentImage, setCurrentImage] = useState(null);
 
   useEffect(() => {

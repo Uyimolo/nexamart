@@ -8,20 +8,20 @@ const ProductCard = ({ product, purpose }) => {
   // const formattedProductName = product.title.replace(/\s/g, '-');
   // console.log(formattedProductName);
 
-  const imagesString = product.images.join(',');
+  // const imagesString = product.images.join(',');
 
   // for malformed image arrays. REMEMBER TO LEAVE A COMPLAINT AFTER THANKING THEM FOR THIS AWESOME API
-  const regex = /"([^"]*)"/g;
-  let match;
-  const validImages = [];
+  // const regex = /"([^"]*)"/g;
+  // let match;
+  // const validImages = [];
 
-  while ((match = regex.exec(imagesString))) {
-    validImages.push(match[1]);
-  }
+  // while ((match = regex.exec(imagesString))) {
+  //   validImages.push(match[1]);
+  // }
 
-  const firstImage =
-    validImages.length > 0 ? validImages[0] : product.images[0];
-  // console.log(firstImage)
+  // const firstImage =
+  //   validImages.length > 0 ? validImages[0] : product.images[0];
+  // // console.log(firstImage)
 
   return (
     <div
@@ -29,11 +29,12 @@ const ProductCard = ({ product, purpose }) => {
         purpose === 'carousel' ? style.carousel : ''
       }`}>
       <LazyLoad height='100%' offset={-200} placeholder={<LazyImage />}>
-        <Link
-          to={`/products/${product.id}`}
-          className={style.product_card_top}>
+        <Link to={`/products/${product.id}`} className={style.product_card_top}>
           <div className={style.product_image}>
-            <img src={firstImage} alt={product?.title} />
+            <img src={product.thumbnail} alt={product?.title} />
+          </div>
+          <div className={style.discount}>
+            -{product?.discountPercentage.toFixed()}%
           </div>
         </Link>
       </LazyLoad>
@@ -44,8 +45,14 @@ const ProductCard = ({ product, purpose }) => {
         <p className={style.name}>{product?.title}</p>
         <div className={style.product_price_and_rating}>
           <p className={style.price}>{`$${product?.price}`}</p>
-          <ProductCardStars />
+          <p className={style.original_price}>
+            $
+            {(product.price / (1 - product.discountPercentage / 100)).toFixed(
+              2
+            )}
+          </p>
         </div>
+        <ProductCardStars rating={product.rating} />
       </div>
     </div>
   );

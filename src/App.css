@@ -23,35 +23,43 @@ p {
 
 .App {
   background-color: var(--white);
+  max-width: 1440px;
+  margin: auto;
 }
 
 .page {
-  padding: 2rem 0;
+  padding: 9rem var(--mobile-padding);
   display: flex;
   flex-direction: column;
   gap: 2rem 0;
+}
+
+h2 {
+  font-weight: 600;
 }
 
 h1 {
   font-size: 1.5rem;
 }
 
-
-
 @media (min-width: 768px) {
-
   h1 {
     font-size: 2em;
   }
 
-
   .page {
     gap: 2rem 0;
+    padding: 10rem var(--tablet-padding);
   }
 }
 
 @media (min-width: 1024px) {
   h1 {
     font-size: 2.5em;
+  }
+
+  .page {
+    gap: 2rem 0;
+    padding: 6rem var(--desktop-padding);
   }
 }

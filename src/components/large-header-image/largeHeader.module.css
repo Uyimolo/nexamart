@@ -1,17 +1,11 @@
 .large_header {
   position: relative;
-  /* padding: 1rem; */
-  /* margin: 0 1rem; */
-
   height: 16rem;
-  background-color:#1c1d54;
+  background-color: var(--black);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* overflow: hidden; */
 }
-
-
 
 .header_image {
   width: 50%;
@@ -60,28 +54,24 @@
 @media (min-width: 768px) {
   .large_header {
     height: 22rem;
-    /* overflow: hidden; */
     padding: 0rem var(--tablet-padding);
     align-items: center;
-    /* margin: 0 var(--); */
   }
 
   .large_header h1 {
-  font-size: 3rem;
-}
-
+    font-size: 3rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .large_header {
-    aspect-ratio:6/2;
-    margin: 0 5rem;
+    aspect-ratio: 6/2;
     padding: 0 var(--desktop-padding);
   }
 
   .large_header h1 {
-  font-size: 3.5rem;
-}
+    font-size: 3.5rem;
+  }
 
   .header_details {
     width: 50%;

@@ -11,50 +11,29 @@ const Product = () => {
   const [images, setImages] = useState();
 
   const fetchProduct = async () => {
-    const response = await fetch(
-      `https://api.escuelajs.co/api/v1/products/${productId}`
-    );
+    const response = await fetch(`https://dummyjson.com/products/${productId}`);
     return await response.json();
   };
 
-  const {
-    data: product,
-    isLoading,
-    error,
-  } = useReactQuery(['product'], fetchProduct);
+  const { data, isLoading, error } = useReactQuery(['productt'], fetchProduct);
 
   useEffect(() => {
-    if (product) {
-      const imagesString = product.images.join(',');
-
-      // for malformed image arrays. REMEMBER TO LEAVE A COMPLAINT AFTER THANKING THEM FOR THIS AWESOME API
-      const regex = /"([^"]*)"/g;
-      let match;
-      const validImages = [];
-
-      while ((match = regex.exec(imagesString))) {
-        validImages.push(match[1]);
-      }
-
-      validImages.length > 0
-        ? setImages(validImages)
-        : setImages(product.images);
+    if (data) {
+      setImages(data.images);
     }
-  }, [product, isLoading]);
+  }, [data, isLoading]);
+
+  // const images =
+  //   product.images.filter((image) => !image.includes('thumbnail')) || [];
 
   return (
     <div className={`${style.product_container} page`}>
       {isLoading && <p>Loading product details...</p>}
       {error && <p>Error: {error.message}</p>}
-      {product && (
+      {data && (
         <div className={style.product_info}>
           <Lightbox imagesArray={images} />
-          <ProductDetails
-            product={product}
-            // quantity={quantity}
-            // setQuantity={setQuantity}
-            // handleSetQuantity={handleSetQuantity}
-          />
+          <ProductDetails product={data} />
         </div>
       )}
     </div>

@@ -12,17 +12,14 @@ const FlashSales = () => {
   const swiperRef = useRef();
 
   const fetchFlashSalesProducts = async () => {
-    const response = await fetch(
-      'https://api.escuelajs.co/api/v1/products?offset=0&limit=12'
-    );
+    const response = await fetch('https://dummyjson.com/products');
     return await response.json();
   };
 
-  const {
-    data: flashSaleProducts,
-    isLoading,
-    error,
-  } = useReactQuery(['products'], fetchFlashSalesProducts);
+  const { data, isLoading, error, isSuccess } = useReactQuery(
+    ['products'],
+    fetchFlashSalesProducts
+  );
 
   useEffect(() => {
     const swiperContainer = swiperRef.current;
@@ -35,12 +32,12 @@ const FlashSales = () => {
         },
 
         768: {
-          slidesPerView: 3.4,
+          slidesPerView: 4.4,
           spaceBetween: 10,
           navigation: true,
         },
         1024: {
-          slidesPerView: 6.4,
+          slidesPerView: 5.4,
           spaceBetween: 10,
         },
       },
@@ -65,8 +62,6 @@ const FlashSales = () => {
     swiperContainer.initialize();
   }, []);
 
-  if (error) return <div className=''>{error}</div>;
-
   return (
     <div className={style.flash_sales}>
       <SubHeading text={`Todays's`} />
@@ -76,18 +71,17 @@ const FlashSales = () => {
 
       <div className={style.products_container}>
         <swiper-container ref={swiperRef} init='false'>
-          {!isLoading &&
-            [...flashSaleProducts].reverse().map((product) => (
-              <swiper-slide key={product.id}>
-                <ProductCard product={product} purpose='carousel' />
-              </swiper-slide>
-            ))}
-          {isLoading &&
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((product) => (
-              <swiper-slide key={product}>
-                <LazyProductCard purpose='carousel' product={product} />
-              </swiper-slide>
-            ))}
+          {!isLoading && !error
+            ? [...data.products].reverse().map((product) => (
+                <swiper-slide key={product.id}>
+                  <ProductCard product={product} purpose='carousel' />
+                </swiper-slide>
+              ))
+            : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((product) => (
+                <swiper-slide key={product}>
+                  <LazyProductCard purpose='carousel' product={product} />
+                </swiper-slide>
+              ))}
         </swiper-container>
       </div>
     </div>

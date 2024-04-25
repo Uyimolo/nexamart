@@ -1,12 +1,13 @@
 import style from './categories.module.css';
 import SubHeading from '../sub-heading/SubHeading';
-import CategoryCard from '../category-card/CategoryCard';
 import LazyCategoryCard from '../lazy-category-card/LazyCategoryCard';
 import useReactQuery from '../../custom-hooks-and-arrays/useReactQuery';
+import { Link } from 'react-router-dom';
 
 const Categories = () => {
+  const url = `https://dummyjson.com/products/categories`;
   const fetchCategories = async () => {
-    const response = await fetch('https://api.escuelajs.co/api/v1/categories');
+    const response = await fetch(url);
     return await response.json();
   };
 
@@ -14,8 +15,7 @@ const Categories = () => {
     data: categories,
     isLoading,
     error,
-  } = useReactQuery(['categories'], fetchCategories);
-  console.log(categories)
+  } = useReactQuery(['categories', url], fetchCategories);
 
   if (error) return <div>{error}</div>; // todo: create a better component for showing query error message
 
@@ -25,11 +25,9 @@ const Categories = () => {
       <div className={`${style.categories}`}>
         {!isLoading &&
           categories
-            .filter((category) =>
-              category.image.toLowerCase().includes('imgur')
-            )
             .map((category) => (
-              <CategoryCard key={category.id} category={category} />
+              // <CategoryCard key={category.id} category={category} />
+              <Link to={`/category/${category}`} key={category} className={style.category}>{category}</Link>
             ))}
         {isLoading &&
           [1, 2, 3, 4, 5].map((category) => (
