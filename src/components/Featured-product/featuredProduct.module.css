@@ -1,12 +1,9 @@
 .featured_product {
   height: 16rem;
   background-color: var(--green);
-  /* background-color: rgba(89, 238, 151, 0.767); */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* overflow: hidden; */
-  margin: 0 var(--mobile-padding);
 }
 
 .featured_image {
@@ -55,9 +52,8 @@
 @media (min-width: 768px) {
   .featured_product {
     height: 22rem;
-
+    padding: 0 var(--tablet-padding);
     align-items: center;
-    margin: 0 var(--tablet-padding);
   }
 
   .featured_product .featured_details {
@@ -74,7 +70,6 @@
 @media (min-width: 1024px) {
   .featured_product {
     aspect-ratio: 6/2;
-    margin: 0 5rem;
     padding: 0 3rem;
   }
 

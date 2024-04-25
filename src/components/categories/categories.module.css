@@ -10,7 +10,17 @@
   display: flex;
   gap: 1rem calc(7% / 2);
   flex-wrap: wrap;
-  justify-content: left;
+  /* justify-content: center  ; */
+}
+
+.categories .category {
+
+  color: var(--primary-color);
+  padding: .5rem 1rem;
+  border: 1px solid var(--blue);
+
+  color: var(--blue);
+  border-radius: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -19,7 +29,7 @@
   }
 
   .categories {
-    gap: 1rem calc(7% / 4);
+    /* gap: 1rem calc(7% / 4); */
   }
 }
 
@@ -28,6 +38,6 @@
     padding: 1rem var(--desktop-padding);
   }
   .categories {
-    gap: 1rem calc(7% / 6);
+    /* gap: 1rem calc(7% / 6); */
   }
 }

@@ -8,6 +8,8 @@ import Product from './pages/product/Product.jsx';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import Cart from './pages/cart/Cart.jsx';
 import Products from './pages/products/Products.jsx';
+import Category from './pages/category/Category.jsx';
+import Checkout from './pages/checkout/Checkout.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,8 @@ const router = createBrowserRouter([
       { path: '/products', element: <Products /> },
       { path: '/products/:productId', element: <Product /> },
       { path: '/cart', element: <Cart /> },
+      { path: '/categories/:categoryName', element: <Category /> },
+      { path: '/checkout', element: <Checkout /> },
     ],
   },
 ]);

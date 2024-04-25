@@ -1,37 +1,37 @@
 // import style from './home.module.css';
 import LargeHeader from '../../components/large-header-image/LargeHeader';
-import Categories from '../../components/categories/Categories';
 import ProductsList from '../../components/products-list/ProductsList';
 import FlashSales from '../../components/flash-sales/FlashSales';
 import FeaturedProduct from '../../components/Featured-product/FeaturedProduct';
 import useReactQuery from '../../custom-hooks-and-arrays/useReactQuery';
+import TrendingCategories from '../../components/trending-categories/TrendingCategories';
+
+const url = `https://dummyjson.com/products?limit=10`;
 
 const Home = () => {
   const fetchProducts = async () => {
-    const response = await fetch(
-      'https://api.escuelajs.co/api/v1/products?offset=0&limit=12'
-    );
+    const response = await fetch(url);
     return await response.json();
   };
 
-  const {
-    data: products,
-    isLoading,
-    error,
-  } = useReactQuery(['productsU'], fetchProducts);
+  const { data, isLoading, error, isSuccess } = useReactQuery(
+    ['products', url],
+    fetchProducts
+  );
 
   return (
     <div className='page home'>
       <LargeHeader />
-      <Categories />
       <FlashSales />
       <FeaturedProduct />
       <ProductsList
-        products={products}
+        products={data?.products}
         isLoading={isLoading}
         error={error}
+        isSuccess={isSuccess}
         subHeadings={['Our Products', 'Explore Our Products']}
       />
+      <TrendingCategories />
     </div>
   );
 };

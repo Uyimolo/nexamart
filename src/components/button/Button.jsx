@@ -3,9 +3,10 @@ import style from './button.module.css';
 
 import Icon from '../icon/Icon';
 
-const Button = ({ icon, text, color, width, iconSize, onClick }) => {
+const Button = ({ icon, text, color, width, iconSize, onClick, disabled }) => {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={`${style.cta} ${
         color === 'secondary' ? style.secondary : ''

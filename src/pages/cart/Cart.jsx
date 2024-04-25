@@ -41,7 +41,7 @@ const Cart = () => {
               <p>Total</p> <p className={style.total_price}>${subTotal}</p>
             </div>
             <div className={style.cart_checkout_desktop}>
-              <Link className={style.checkout_button}>
+              <Link className={style.checkout_button} to='/checkout'>
                 <Button
                   text={`${'Proceed to checkout'} ($${subTotal})`}
                   color='secondary'
@@ -51,15 +51,15 @@ const Cart = () => {
             </div>
           </div>
         )}
-        <div className={style.cart_checkout}>
-          <Link className={style.checkout_button}>
+       {cart.length > 0 ? <div className={style.cart_checkout}>
+          <Link className={style.checkout_button} to='/checkout'>
             <Button
               text={`${'Proceed to checkout'} ($${subTotal})`}
               color='secondary'
               width='full'
             />
           </Link>
-        </div>
+        </div> : <p>cart is empty</p> }
       </div>
     </div>
   );

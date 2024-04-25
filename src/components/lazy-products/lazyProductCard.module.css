@@ -63,7 +63,7 @@
 
 @media (min-width: 1024px) {
   .product_card {
-    max-width: calc(90% / 6);
+    max-width: calc(90% / 5);
   }
 
   .product_card.carousel {

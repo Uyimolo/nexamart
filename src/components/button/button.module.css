@@ -13,10 +13,20 @@
     text-align: center;
 }
 
+.cta.secondary:hover {
+    background-color: var(--blue);
+}
+
+.cta:hover {
+    background-color: var(--very-light-gray);
+}
+
+
 .cta.secondary {
     background-color: var(--secondary-color);
     color: var(--white);
 }
+
 
 .cta.full {
     width: 100%;
