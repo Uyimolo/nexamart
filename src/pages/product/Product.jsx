@@ -15,7 +15,7 @@ const Product = () => {
     return await response.json();
   };
 
-  const { data, isLoading, error } = useReactQuery(['productt'], fetchProduct);
+  const { data, isLoading, error } = useReactQuery(['product'], fetchProduct);
 
   useEffect(() => {
     if (data) {
@@ -28,14 +28,12 @@ const Product = () => {
 
   return (
     <div className={`${style.product_container} page`}>
-      {isLoading && <p>Loading product details...</p>}
-      {error && <p>Error: {error.message}</p>}
-      {data && (
+      {
         <div className={style.product_info}>
-          <Lightbox imagesArray={images} />
-          <ProductDetails product={data} />
+          <Lightbox isLoading={isLoading} error={error} imagesArray={images} />
+          {data && <ProductDetails product={data} />}
         </div>
-      )}
+      }
     </div>
   );
 };

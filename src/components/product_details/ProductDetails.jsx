@@ -4,7 +4,9 @@ import ProductCardStars from '../product-card-stars/ProductCardStars';
 import Icon from '../icon/Icon';
 import { faRecycle, faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import AddToCart from '../add-to-cart/AddToCart';
-const ProductDetails = ({ product }) => {
+const ProductDetails = ({ product, isLoading, error }) => {
+  if (isLoading) return;
+  if (error) return;
   return (
     <div className={style.details}>
       <div className={style.product_info}>
@@ -13,8 +15,9 @@ const ProductDetails = ({ product }) => {
 
         <div className={style.rating_price}>
           <ProductCardStars rating={product.rating} />
-          <p
-            className={style.available}>{`${product.stock ? `In stock (${product.stock})` : 'Out of stock'}`}</p>
+          <p className={style.available}>{`${
+            product.stock ? `In stock (${product.stock})` : 'Out of stock'
+          }`}</p>
         </div>
 
         <p>{product.description}</p>
