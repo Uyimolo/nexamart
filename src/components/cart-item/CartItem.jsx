@@ -28,6 +28,7 @@ const CartItem = ({ product }) => {
           icon={faTrash}
           title='Delete'
           size='large'
+          // color='primary'
           onClick={() => removeFromCart(product.id)}
         />
         <Quantity quantity={product.quantity} productId={product.id} />

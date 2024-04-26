@@ -27,8 +27,17 @@
 .increase {
   width: 1.5rem;
   height: 1.5rem;
-  background-color: var(--black);
+  background-color: var(--light-gray);
   display: grid;
   place-content: center;
-  border: 1px solid var(--black);
+  cursor: pointer;
+  /* border: 1px solid var(--black); */
+}
+
+.decrease:hover , .increase:hover {
+  background-color: var(--secondary-color);
+}
+
+.decrease.deactivated {
+  display: none;
 }

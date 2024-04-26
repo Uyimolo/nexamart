@@ -9,13 +9,16 @@ const Product = () => {
   const { productId } = useParams();
 
   const [images, setImages] = useState();
-
+  const url = `https://dummyjson.com/products/${productId}`;
   const fetchProduct = async () => {
-    const response = await fetch(`https://dummyjson.com/products/${productId}`);
+    const response = await fetch(url);
     return await response.json();
   };
 
-  const { data, isLoading, error } = useReactQuery(['product'], fetchProduct);
+  const { data, isLoading, error } = useReactQuery(
+    ['product', url],
+    fetchProduct
+  );
 
   useEffect(() => {
     if (data) {

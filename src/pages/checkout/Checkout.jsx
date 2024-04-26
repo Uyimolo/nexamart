@@ -3,6 +3,7 @@ import BillingForm from '../../components/billing-form/BillingForm';
 import SubHeading from '../../components/sub-heading/SubHeading';
 import style from './checkout.module.css';
 import PaymentDetails from '../../components/payment-details/PaymentDetails';
+import SuccessfulPurchase from '../../components/successful-purchase/SuccessfulPurchase';
 
 const Checkout = () => {
   const [buyerData, setBuyerData] = useState([]);
@@ -30,6 +31,11 @@ const Checkout = () => {
           handleStepsNavigation={handleStepsNavigation}
         />
       ),
+    },
+    {
+      name: 'Successful Purchase',
+      id: 3,
+      content: <SuccessfulPurchase />,
     },
   ];
 

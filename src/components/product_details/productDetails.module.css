@@ -1,5 +1,4 @@
 .details {
-  padding: 0 var(--mobile-padding);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -27,8 +26,6 @@
   border-left: 1px solid var(--black);
   padding-left: 1rem;
 }
-
-
 
 .add_to_cart {
   position: sticky;
@@ -59,15 +56,8 @@
   font-size: var(--small-text);
 }
 
-@media (min-width: 768px) {
-  .details {
-    padding: 2rem var(--tablet-padding);
-  }
-}
-
 @media (min-width: 1024px) {
   .details {
-    padding: 0rem var(--desktop-padding) 0 0;
     width: 45%;
     position: absolute;
     right: 0;

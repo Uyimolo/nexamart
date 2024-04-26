@@ -107,6 +107,7 @@
   gap: 1rem;
   width: 100%;
   align-items: center;
+  position: relative;
 }
 
 .select {
@@ -129,15 +130,24 @@
   border-radius: 50%;
 }
 
+.credit_card_logos {
+  display: flex;
+  gap: 1rem;
+  width: fit-content;
+  position: absolute;
+  right: 0;
+}
+
+.credit_card_logos img {
+  width: 2rem;
+}
+
 
 
 .complete_order_button {
   width: 100%;
   margin-top: 1rem;
 }
-
-
-
 
 @media (min-width: 768px) {
   .payment_details {

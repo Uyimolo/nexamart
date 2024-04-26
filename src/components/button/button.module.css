@@ -1,34 +1,39 @@
 .cta {
-    background-color: var(--very-light-gray);
-    background-color: var(--white);
-    padding: .7rem 1.5rem;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
-    border-radius: .5rem;
-    font-size: 1em;
-    cursor: pointer;
-    text-align: center;
+  background-color: var(--very-light-gray);
+  background-color: var(--white);
+  padding: 0.7rem 1rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1em;
+  cursor: pointer;
+  text-align: center;
 }
 
 .cta.secondary:hover {
-    background-color: var(--blue);
+  background-color: var(--blue);
 }
 
 .cta:hover {
-    background-color: var(--very-light-gray);
+  background-color: var(--very-light-gray);
 }
-
 
 .cta.secondary {
-    background-color: var(--secondary-color);
-    color: var(--white);
+  background-color: var(--secondary-color);
+  color: var(--white);
 }
-
 
 .cta.full {
-    width: 100%;
+  width: 100%;
 }
 
+
+@media (min-width: 1024px) {
+  .cta.full {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+}

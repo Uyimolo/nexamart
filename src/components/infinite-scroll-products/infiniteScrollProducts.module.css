@@ -23,11 +23,20 @@
   text-align: center;
 }
 
+  .fetch_more_products_button {
+    margin: 3rem auto 0;
+}
+
 @media (min-width: 768px) {
 
   .products_container {
     gap: 2rem calc(7% / 2);
   }
+
+    .fetch_more_products_button {
+    width: 50%;
+    margin: 3rem auto 0;
+}
 }
 
 @media (min-width: 1024px) {

@@ -23,7 +23,7 @@ const InfiniteScrollProducts = () => {
 
   const { data, fetchNextPage, isLoading, isFetchingNextPage, hasNextPage } =
     useInfiniteQuery({
-      queryKey: ['paginatedContent', location],
+      queryKey: ['paginatedContent', location.pathname],
       queryFn: fetchProducts,
       initialPageParam: 0,
       getNextPageParam: (lastPage, allPages) => {
@@ -50,7 +50,8 @@ const InfiniteScrollProducts = () => {
   useEffect(() => {
     setProducts([]);
     setIndex(0);
-  }, []);
+    fetchNextPage();
+  }, [location, fetchNextPage]);
 
   return (
     <div className={style.products_list}>
@@ -63,7 +64,7 @@ const InfiniteScrollProducts = () => {
               <LazyProductCard purpose='grid' product={product} key={product} />
             ))}
       </div>
-      {index > 0 && hasNextPage && (
+      {index > 0 && !isLoading && (
         <div className={style.fetch_more_products_button}>
           <Button
             onClick={() => fetchNextPage()}
@@ -72,6 +73,7 @@ const InfiniteScrollProducts = () => {
             color='secondary'
             width='full'
             icon={isFetchingNextPage ? faSpinner : ''}
+            iconColor='white'
           />
         </div>
       )}

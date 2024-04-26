@@ -3,7 +3,7 @@ import style from './button.module.css';
 
 import Icon from '../icon/Icon';
 
-const Button = ({ icon, text, color, width, iconSize, onClick, disabled }) => {
+const Button = ({ icon, text, color, width, iconSize, onClick, disabled, iconColor }) => {
   return (
     <button
       disabled={disabled}
@@ -12,7 +12,7 @@ const Button = ({ icon, text, color, width, iconSize, onClick, disabled }) => {
         color === 'secondary' ? style.secondary : ''
       } ${width === 'full' ? style.full : ''}`}>
       {text}
-      {icon && <Icon className={style.icon} icon={icon} size={iconSize} />}
+      {icon && <Icon className={style.icon} icon={icon} size={iconSize} color={iconColor} />}
     </button>
   );
 };

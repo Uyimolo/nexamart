@@ -7,13 +7,36 @@ import CartIcon from '../cart-icon/CartIcon';
 import { faBars, faHeart } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../navigation/Navigation';
 import SearchInput from '../search-input/SearchInput';
+import useReactQuery from '../../custom-hooks-and-arrays/useReactQuery';
+import SearchResults from '../search-results/SearchResults';
+import { useLocation } from 'react-router';
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isScrolledDown, setIsScrolledDown] = useState(false);
+  // const [showResults, setShowResults] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const location = useLocation()
   const threshold = 300;
   const handleDisplayMenu = (val) => {
     setShowMenu(val);
   };
+
+  useEffect(() => {
+    setSearchTerm('')
+  }, [location])
+
+  const url =
+    searchTerm.trim().length > 0 &&
+    `https://dummyjson.com/products/search?q=${searchTerm.trim()}`;
+  const search = async () => {
+    const response = await fetch(url);
+    return await response.json();
+  };
+
+  const { data, isLoading, error, isSuccess } = useReactQuery(
+    ['search', url],
+    search
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +66,7 @@ const Header = () => {
 
   return (
     <header
-      className={`${isScrolledDown ? style.scrolled_down : style.scrolled_up}`}>
+      className={`${isScrolledDown && !showMenu ? style.scrolled_down : style.scrolled_up}`}>
       <div className={style.top}>
         <Logo />
 
@@ -67,13 +90,22 @@ const Header = () => {
 
       <div className={style.bottom}>
         <div className={style.search}>
-          <SearchInput />
+          <SearchInput searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </div>
         <div className={style.icons}>
           <Icon icon={faHeart} size='large' />
           <CartIcon />
         </div>
       </div>
+      {searchTerm.length > 0 && (
+        <SearchResults
+          results={data?.products}
+          isLoading={isLoading}
+          isSuccess={isSuccess}
+          error={error}
+          setSearchTerm={setSearchTerm}
+        />
+      )}
     </header>
   );
 };
