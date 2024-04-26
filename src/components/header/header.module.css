@@ -5,14 +5,13 @@ header {
   padding: 0.5rem var(--mobile-padding);
   width: 100%;
   max-width: 1440px;
-
   margin: auto;
   background-color: var(--white);
   z-index: 2;
   position: fixed;
-  left: 0;
+  transform: translateX(-50%);
   transition: transform 1s ease-in-out;
-  box-shadow: 0 0 5px var(--light-gray);
+  border-bottom: 1px solid var(--light-gray);
 }
 
 header.scrolled_up {
@@ -29,6 +28,7 @@ header.scrolled_down {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 .menu_button {
@@ -74,6 +74,10 @@ header.scrolled_down {
     padding: 1rem var(--tablet-padding);
   }
   .menu_button {
+    display: none;
+  }
+
+  .curtain {
     display: none;
   }
 }

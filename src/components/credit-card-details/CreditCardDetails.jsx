@@ -14,10 +14,12 @@ const CreditCardDetails = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    let formattedValue = value.replace(/[^\d]/g, ''); // Remove non-digit characters
+    let formattedValue; 
     if (name === 'cardNumber') {
-      // Format card number with spaces and hyphens
+      formattedValue = value.replace(/[^\d]/g, '');
       formattedValue = formattedValue.replace(/(\d{4})(?=\d)/g, '$1-');
+    } else {
+      formattedValue = value;
     }
     setCardDetails({ ...cardDetails, [name]: formattedValue });
     validateInput(name, formattedValue);
@@ -35,7 +37,7 @@ const CreditCardDetails = () => {
         break;
       case 'cardNumber':
         error =
-          value.trim() === '' || !/^\d{16}$/.test(value)
+          value.trim() === '' || value.trim().length !== 19
             ? 'Card number must be 16 digits'
             : !luhnCheck(value)
             ? 'Invalid card number (Luhn Algorithm check failed)'
@@ -84,6 +86,7 @@ const CreditCardDetails = () => {
 
   // Luhn Algorithm check function
   const luhnCheck = (cardNumber) => {
+    cardNumber = cardNumber.replace(/-/g, '');
     let sum = 0;
     let isSecondDigit = false;
     for (let i = cardNumber.length - 1; i >= 0; i--) {
@@ -164,9 +167,9 @@ const CreditCardDetails = () => {
             <span className={style.error}>{errors.cvv}</span>
           </div>
         </div>
-        <div className={style.complete_order_button}>
+        {/* <div className={style.complete_order_button}>
           <Button text='Submit Card Details' color='secondary' />
-        </div>
+        </div> */}
       </form>
     </div>
   );

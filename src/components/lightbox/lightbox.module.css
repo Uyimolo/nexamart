@@ -1,7 +1,3 @@
-.lightbox_container {
-  padding: 1rem;
-}
-
 .lightbox {
   display: flex;
   flex-direction: column;
@@ -62,10 +58,6 @@
 }
 
 @media (min-width: 768px) {
-  .lightbox_container {
-    padding: 0 var(--tablet-padding);
-  }
-
   .lightbox {
     flex-direction: row-reverse;
     gap: 1rem;
@@ -90,7 +82,6 @@
 @media (min-width: 1024px) {
   .lightbox_container {
     width: 50%;
-    padding: 0 0 0 var(--desktop-padding);
   }
 
   .lightbox {

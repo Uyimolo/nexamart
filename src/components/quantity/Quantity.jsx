@@ -10,7 +10,7 @@ const Quantity = ({ quantity, productId }) => {
   return (
     <div className={style.quantity_container}>
       <div
-        className={style.decrease}
+        className={`${style.decrease} ${quantity < 2 ? style.deactivated : ''}`}
         // onClick={() => handleSetQuantity('decrease')}
       >
         <Icon

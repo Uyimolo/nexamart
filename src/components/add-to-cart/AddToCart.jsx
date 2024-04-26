@@ -25,6 +25,7 @@ const AddToCart = ({ product }) => {
       icon={faCartPlus}
       text='Add To Cart'
       color='secondary'
+      iconColor='white'
       width='full'
       iconSize='large'
       onClick={handleAddToCart}

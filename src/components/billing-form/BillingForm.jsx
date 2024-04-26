@@ -72,6 +72,7 @@ const BillingForm = ({ setBuyerData, handleStepsNavigation}) => {
           : group
       )
     );
+    console.log(event.value)
   };
 
   const validateInput = (id, value) => {
@@ -103,7 +104,6 @@ const BillingForm = ({ setBuyerData, handleStepsNavigation}) => {
       return;
     }
 
-    console.log('Form submitted:', billingFormGroups);
     setBuyerData(billingFormGroups);
     handleStepsNavigation('next')
   };

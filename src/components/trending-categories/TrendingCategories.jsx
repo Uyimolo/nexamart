@@ -19,7 +19,7 @@ const TrendingCategories = () => {
               Experience the latest in smartphone technology with our range of
               cutting edge smartphones.
             </p>
-            <Link>Shop Now</Link>
+            <Link to="/categories/smartphones">Shop Now</Link>
           </div>
         </div>
         <div className={style.right}>
@@ -28,7 +28,7 @@ const TrendingCategories = () => {
             <div className={style.details}>
               <h3>{`Women's collection`}</h3>
               <p>{`Elevate your style with  our trendy and timeless women's wear collection`}</p>
-              <Link to={`categoriesmen's-wear`}>Shop Now</Link>
+              <Link to='/categories/womens-dresses'>Shop Now</Link>
             </div>
           </div>
           <div className={style.right_bottom}>
@@ -37,7 +37,7 @@ const TrendingCategories = () => {
               <div className={style.details}>
                 <h3>Mens Shoes</h3>
                 <p>{`Step up your shoe game with our vast collection of stylish and comfortable shoes for all occasions.`}</p>
-                <Link>Shop Now</Link>
+                <Link to='/categories/mens-shoes'>Shop Now</Link>
               </div>
             </div>
             <div className={`${style.bottom_right} ${style.image}`}>
@@ -45,7 +45,7 @@ const TrendingCategories = () => {
               <div className={style.details}>
                 <h3>{`Men's Wear`}</h3>
                 <p>{`Upgrade your wardrobe with our stylish and comfortable men;s wear range, shop now and dress to impress.`}</p>
-                <Link>Shop Now</Link>
+                <Link to='/categories/mens-shirts'>Shop Now</Link>
               </div>
             </div>
           </div>

@@ -10,6 +10,14 @@
     font-size: 1.5em;
 }
 
+.icon {
+    color: #707070;
+}
+
+.icon:hover {
+color: var(--secondary-color);
+}
+
 .icon.white {
     color: var(--white);
 }

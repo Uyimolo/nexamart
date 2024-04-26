@@ -3,7 +3,10 @@ import { useCartSelectors } from '../../store/cartStore';
 import { useState } from 'react';
 import Button from '../button/Button';
 import CreditCardDetails from '../credit-card-details/CreditCardDetails';
-const PaymentDetails = () => {
+import americanExpress from '../../assets/images/american-express.svg';
+import visa from '../../assets/images/visa.svg';
+import masterCard from '../../assets/images/mastercard.svg';
+const PaymentDetails = ({ handleStepsNavigation }) => {
   const cart = useCartSelectors.use.cart();
   const [paymentOption, setPaymentOption] = useState('cash');
   const subTotal = cart.reduce(
@@ -32,7 +35,8 @@ const PaymentDetails = () => {
           </p>
         </div>
 
-        <div className={style.select_container}>
+        <div
+          className={`${style.select_container} ${style.credit_card_container}`}>
           <div
             className={`${style.select} ${
               paymentOption === 'credit card' ? style.active : ''
@@ -46,6 +50,12 @@ const PaymentDetails = () => {
             onClick={() => setPaymentOption('credit card')}>
             Credit card
           </p>
+
+          <div className={style.credit_card_logos}>
+            <img src={masterCard} alt='' />
+            <img src={visa} alt='' />
+            <img src={americanExpress} alt='' />
+          </div>
         </div>
 
         {paymentOption === 'credit card' && <CreditCardDetails />}
@@ -68,7 +78,7 @@ const PaymentDetails = () => {
           </div>
         </div>
         <div className={style.complete_order_button}>
-          <Button text='Complete Order' color='secondary' width='full' />
+          <Button text='Complete Order' color='secondary' width='full' onClick={() => handleStepsNavigation('next')} />
         </div>
       </div>
     </div>

@@ -28,10 +28,11 @@ p {
 }
 
 .page {
-  padding: 9rem var(--mobile-padding);
+  padding: 9rem var(--mobile-padding) ;
   display: flex;
   flex-direction: column;
   gap: 2rem 0;
+  min-height: 90vh;
 }
 
 h2 {
@@ -49,7 +50,7 @@ h1 {
 
   .page {
     gap: 2rem 0;
-    padding: 10rem var(--tablet-padding);
+    padding: 10rem var(--tablet-padding) 6rem;
   }
 }
 
@@ -60,6 +61,6 @@ h1 {
 
   .page {
     gap: 2rem 0;
-    padding: 6rem var(--desktop-padding);
+    padding: 6rem var(--desktop-padding) 6rem;
   }
 }
