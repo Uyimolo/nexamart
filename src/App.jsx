@@ -6,7 +6,7 @@ import { Outlet, useLocation } from 'react-router';
 import { useEffect } from 'react';
 import { useCartSelectors } from './store/cartStore';
 
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -16,7 +16,7 @@ const App = () => {
   const cart = useCartSelectors.use.cart();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 });
   }, [location]);
 
   useEffect(() => {
