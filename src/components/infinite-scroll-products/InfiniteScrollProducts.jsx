@@ -64,7 +64,7 @@ const InfiniteScrollProducts = () => {
               <LazyProductCard purpose='grid' product={product} key={product} />
             ))}
       </div>
-      {index > 0 && !isLoading && (
+      {hasNextPage && index > 0 && !isLoading && (
         <div className={style.fetch_more_products_button}>
           <Button
             onClick={() => fetchNextPage()}
