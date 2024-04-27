@@ -3,10 +3,8 @@ import Icon from '../icon/Icon';
 import style from './successfulPurchase.module.css';
 import Button from '../button/Button';
 import { Link } from 'react-router-dom';
-import { useCartSelectors } from '../../store/cartStore';
 
 const SuccessfulPurchase = () => {
-  const clearCart = useCartSelectors.use.clearCart();
 
   return (
     <div className={style.successful_purchase}>
@@ -18,13 +16,13 @@ const SuccessfulPurchase = () => {
       </h1>
       <p className={style.order_number_text}>Your order has been placed.</p>
       <p className={style.order_number_text}>
-        Your order number is <span>NEXA1234567890</span>.
+        Your order number is <span>NEXAMART12B5JB890</span>.
       </p>
       <p className={style.order_number_text}>
-        Please check your email for more details.
+        Please check your email for tracking details.
       </p>
 
-      <Link to='/' className={style.continue_shopping} onClick={clearCart}>
+      <Link to='/' className={style.continue_shopping}>
         <Button
           color='secondary'
           text='Continue Shopping'

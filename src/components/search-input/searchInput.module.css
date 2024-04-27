@@ -19,5 +19,14 @@
     top: 50%;
     left: 1rem;
     transform: translateY(-50%);
-    
+}
+
+
+.cancel_search {
+     position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+
 }

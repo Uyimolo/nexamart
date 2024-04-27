@@ -10,20 +10,21 @@ import SearchInput from '../search-input/SearchInput';
 import useReactQuery from '../../custom-hooks-and-arrays/useReactQuery';
 import SearchResults from '../search-results/SearchResults';
 import { useLocation } from 'react-router';
+import { toast } from 'react-toastify';
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isScrolledDown, setIsScrolledDown] = useState(false);
   // const [showResults, setShowResults] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const location = useLocation()
+  const location = useLocation();
   const threshold = 300;
   const handleDisplayMenu = (val) => {
     setShowMenu(val);
   };
 
   useEffect(() => {
-    setSearchTerm('')
-  }, [location])
+    setSearchTerm('');
+  }, [location]);
 
   const url =
     searchTerm.trim().length > 0 &&
@@ -37,6 +38,12 @@ const Header = () => {
     ['search', url],
     search
   );
+
+  useEffect(() => {
+    if ( data && data.total === 0) {
+     toast(`'${searchTerm.trim()}' doesn't match any product`);
+    }
+  }, [data]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +73,9 @@ const Header = () => {
 
   return (
     <header
-      className={`${isScrolledDown && !showMenu ? style.scrolled_down : style.scrolled_up}`}>
+      className={`${
+        isScrolledDown && !showMenu ? style.scrolled_down : style.scrolled_up
+      }`}>
       <div className={style.top}>
         <Logo />
 
@@ -90,7 +99,11 @@ const Header = () => {
 
       <div className={style.bottom}>
         <div className={style.search}>
-          <SearchInput searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <SearchInput
+            isLoading={isLoading}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
         </div>
         <div className={style.icons}>
           <Icon icon={faHeart} size='large' />

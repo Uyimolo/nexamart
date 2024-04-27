@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { toast } from 'react-toastify';
 import { useCartSelectors } from '../../store/cartStore';
 import Button from '../button/Button';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';

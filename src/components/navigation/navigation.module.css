@@ -143,6 +143,10 @@ nav .logo_container {
     position: absolute;
   }
 
+  .categories_header {
+    cursor: pointer;
+  }
+
   .categories_header p {
     font-size: 1em;
     line-height: 1.35;

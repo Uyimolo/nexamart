@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import style from './billingForm.module.css';
 import Button from '../button/Button';
+import { toast } from 'react-toastify';
 
 const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*\.\w{2,3}$/;
 
@@ -72,7 +73,6 @@ const BillingForm = ({ setBuyerData, handleStepsNavigation}) => {
           : group
       )
     );
-    console.log(event.value)
   };
 
   const validateInput = (id, value) => {
@@ -100,7 +100,7 @@ const BillingForm = ({ setBuyerData, handleStepsNavigation}) => {
     // Check for any validation errors before proceeding
     const hasErrors = billingFormGroups.some((group) => group.error !== '');
     if (hasErrors) {
-      alert('Please fix all errors before submitting the form.');
+      toast.error('Please fix all errors before submitting the form.');
       return;
     }
 
