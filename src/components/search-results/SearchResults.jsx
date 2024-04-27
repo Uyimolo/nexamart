@@ -4,9 +4,6 @@ import style from './searchResults.module.css';
 
 const SearchResults = ({
   results,
-  isSuccess,
-  isLoading,
-  error,
   setSearchTerm,
 }) => {
   return (

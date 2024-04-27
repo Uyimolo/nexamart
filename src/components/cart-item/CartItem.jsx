@@ -29,7 +29,7 @@ const CartItem = ({ product }) => {
           title='Delete'
           size='large'
           // color='primary'
-          onClick={() => removeFromCart(product.id)}
+          onClick={() => removeFromCart(product.id, product.title)}
         />
         <Quantity quantity={product.quantity} productId={product.id} />
       </div>

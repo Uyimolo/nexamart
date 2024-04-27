@@ -5,6 +5,12 @@ import Footer from './components/footer/Footer';
 import { Outlet, useLocation } from 'react-router';
 import { useEffect } from 'react';
 import { useCartSelectors } from './store/cartStore';
+
+import { ToastContainer} from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
+// toast.configure();
 const App = () => {
   const location = useLocation();
   const cart = useCartSelectors.use.cart();
@@ -22,6 +28,7 @@ const App = () => {
       <Header />
       <Outlet />
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

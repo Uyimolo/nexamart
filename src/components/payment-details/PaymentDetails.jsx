@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import style from './paymentDetails.module.css';
 import { useCartSelectors } from '../../store/cartStore';
 import { useState } from 'react';
@@ -6,13 +7,43 @@ import CreditCardDetails from '../credit-card-details/CreditCardDetails';
 import americanExpress from '../../assets/images/american-express.svg';
 import visa from '../../assets/images/visa.svg';
 import masterCard from '../../assets/images/mastercard.svg';
+import { toast } from 'react-toastify';
 const PaymentDetails = ({ handleStepsNavigation }) => {
   const cart = useCartSelectors.use.cart();
   const [paymentOption, setPaymentOption] = useState('cash');
+  const [cardDetails, setCardDetails] = useState({
+    nameOnCard: 'John Doe',
+    cardNumber: '4242-4242-4242-4242',
+    month: '5',
+    year: '2050',
+    cvv: '123',
+  });
+  const [errors, setErrors] = useState({});
+
   const subTotal = cart.reduce(
     (total, product) => total + product.price * product.quantity,
     0
   );
+
+  const clearCart = useCartSelectors.use.clearCart();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (paymentOption === 'cash') {
+      handleStepsNavigation('next');
+      clearCart();
+    } else {
+      const formValid = Object.values(errors).every((error) => error === '');
+      if (cardDetails.cardNumber !== '' && formValid) {
+        toast.success('Payment processed successfully');
+        handleStepsNavigation('next');
+        clearCart();
+      } else {
+        // Form contains validation errors
+        toast.error('Please review your credit card information');
+      }
+    }
+  };
 
   return (
     <div className={style.payment_details}>
@@ -58,7 +89,14 @@ const PaymentDetails = ({ handleStepsNavigation }) => {
           </div>
         </div>
 
-        {paymentOption === 'credit card' && <CreditCardDetails />}
+        {paymentOption === 'credit card' && (
+          <CreditCardDetails
+            errors={errors}
+            setErrors={setErrors}
+            cardDetails={cardDetails}
+            setCardDetails={setCardDetails}
+          />
+        )}
       </div>
 
       <div className={style.purchase_items}>
@@ -78,7 +116,12 @@ const PaymentDetails = ({ handleStepsNavigation }) => {
           </div>
         </div>
         <div className={style.complete_order_button}>
-          <Button text='Complete Order' color='secondary' width='full' onClick={() => handleStepsNavigation('next')} />
+          <Button
+            text='Complete Order'
+            color='secondary'
+            width='full'
+            onClick={handleSubmit}
+          />
         </div>
       </div>
     </div>

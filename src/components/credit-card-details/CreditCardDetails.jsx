@@ -1,20 +1,15 @@
-import { useState } from 'react';
+/* eslint-disable react/prop-types */
 import style from './creditCardDetails.module.css';
-import Button from '../button/Button';
 
-const CreditCardDetails = () => {
-  const [cardDetails, setCardDetails] = useState({
-    nameOnCard: '',
-    cardNumber: '',
-    month: '',
-    year: '',
-    cvv: '',
-  });
-  const [errors, setErrors] = useState({});
-
+const CreditCardDetails = ({
+  cardDetails,
+  setCardDetails,
+  errors,
+  setErrors,
+}) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    let formattedValue; 
+    let formattedValue;
     if (name === 'cardNumber') {
       formattedValue = value.replace(/[^\d]/g, '');
       formattedValue = formattedValue.replace(/(\d{4})(?=\d)/g, '$1-');
@@ -72,18 +67,6 @@ const CreditCardDetails = () => {
     setErrors({ ...errors, [name]: error });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formValid = Object.values(errors).every((error) => error === '');
-    if (formValid) {
-      // Submit the form or proceed with further actions
-      console.log('Form submitted successfully');
-    } else {
-      // Form contains validation errors
-      console.log('Form has validation errors');
-    }
-  };
-
   // Luhn Algorithm check function
   const luhnCheck = (cardNumber) => {
     cardNumber = cardNumber.replace(/-/g, '');
@@ -105,7 +88,7 @@ const CreditCardDetails = () => {
 
   return (
     <div className={style.credit_card_details}>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className={style.form_group}>
           <label htmlFor='nameOnCard'>Name on card</label>
           <input

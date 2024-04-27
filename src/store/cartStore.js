@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { createSelectors } from './createSelectors';
+import { toast } from 'react-toastify';
 
 export const useCartStore = create((set) => ({
   cart: JSON.parse(localStorage.getItem('cart')) || [],
@@ -7,21 +8,23 @@ export const useCartStore = create((set) => ({
     set((state) => {
       const existingInCart = state.cart.find((item) => item.id === product.id);
       if (!existingInCart) {
+        toast.success(`${product.title} has been added to your cart`);
         return {
           cart: [...state.cart, product],
         };
       } else {
-        alert('already in cart');
+        toast.warning(`${product.title} is already in your cart`);
         return {
           cart: [...state.cart],
         };
       }
     });
   },
-  removeFromCart: (id) => {
+  removeFromCart: (id, productTitle) => {
     set((state) => ({
       cart: state.cart.filter((item) => item.id !== id),
     }));
+    toast.success(`${productTitle} has been removed from your cart`)
   },
   clearCart: () => {
     set(() => ({

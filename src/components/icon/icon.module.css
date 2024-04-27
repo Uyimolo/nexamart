@@ -14,9 +14,9 @@
     color: #707070;
 }
 
-.icon:hover {
+/* .icon:hover {
 color: var(--secondary-color);
-}
+} */
 
 .icon.white {
     color: var(--white);
