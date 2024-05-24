@@ -47,6 +47,7 @@ const Lightbox = ({ imagesArray, error, isLoading }) => {
                   src={image}
                   alt='thumbnail'
                   onClick={() => setCurrentImage(image)}
+                  onMouseOver={() => setCurrentImage(image)}
                   className={style.thumbnail}
                 />
               ))}

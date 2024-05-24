@@ -43,7 +43,7 @@ const Header = () => {
     if ( data && data.total === 0) {
      toast(`'${searchTerm.trim()}' doesn't match any product`);
     }
-  }, [data]);
+  }, [data, searchTerm]);
 
   useEffect(() => {
     const handleScroll = () => {

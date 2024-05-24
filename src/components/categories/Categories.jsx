@@ -27,7 +27,7 @@ const Categories = () => {
           categories
             .map((category) => (
               // <CategoryCard key={category.id} category={category} />
-              <Link to={`/category/${category}`} key={category} className={style.category}>{category}</Link>
+              <Link to={`/category/${category}`} key={category} className={style.category}>{category.name}</Link>
             ))}
         {isLoading &&
           [1, 2, 3, 4, 5].map((category) => (

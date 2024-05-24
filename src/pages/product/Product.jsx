@@ -33,6 +33,7 @@ const Product = () => {
     <div className={`${style.product_container} page`}>
       {
         <div className={style.product_info}>
+          {/* <div className={style.lightbox_container}></div> */}
           <Lightbox isLoading={isLoading} error={error} imagesArray={images} />
           {data && <ProductDetails product={data} />}
         </div>

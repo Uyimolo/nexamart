@@ -1,4 +1,3 @@
-import React from 'react';
 import style from './lazyImage.module.css';
 import Spinner from '../spinner/Spinner';
 
