@@ -14,7 +14,7 @@ const AddToCart = ({ product }) => {
         id: product.id,
         title: product.title,
         price: product.price,
-        image: product.thumbnail,
+        image: product.images[0],
         quantity: 1,
       };
       addToCart(newCartObject);

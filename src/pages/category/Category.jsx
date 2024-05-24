@@ -3,9 +3,10 @@ import Subheading from '../../components/sub-heading/SubHeading';
 import ProductList from '../../components/products-list/ProductsList';
 import { useParams } from 'react-router';
 import useReactQuery from '../../custom-hooks-and-arrays/useReactQuery';
-import LazyProductCard from '../../components/lazy-products/LazyProductCard';
+
 const Category = () => {
   const categoryName = useParams();
+  console.log(categoryName);
   const validCategoryName = categoryName.categoryName;
   const url = `https://dummyjson.com/products/category/${validCategoryName}`;
 
@@ -25,8 +26,6 @@ const Category = () => {
       <div className={style.category_name}>
         <Subheading text={categoryName.categoryName} />
       </div>
-
-
 
       <ProductList
         products={data?.products}

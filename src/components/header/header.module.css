@@ -13,7 +13,6 @@ header {
   transition: transform 1s ease-in-out;
   border-bottom: 1px solid var(--light-gray);
 }
-
 header.scrolled_up {
   transition: 0.5s;
   transform: translateY(0);

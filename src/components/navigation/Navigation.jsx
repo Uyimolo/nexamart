@@ -64,14 +64,14 @@ const Navigation = ({ showMenu, setShowMenu }) => {
                 categories.map((category) => (
                   <Link
                     className={`${style.category_navlink} ${style.navlink} ${
-                      location.pathname === `/categories/${category.id}`
+                      location.pathname === `/categories/${category.slug}`
                         ? style.active
                         : ''
                     }`}
-                    to={`/categories/${category}`}
+                    to={`/categories/${category.slug}`}
                     key={category}
                     onClick={handleClickNavlink}>
-                    {category}
+                    {category.name}
                   </Link>
                 ))}
             </div>

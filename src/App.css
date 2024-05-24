@@ -13,7 +13,6 @@ a {
 }
 
 body {
-  width: 100vw;
   overflow-x: hidden;
 }
 
@@ -28,10 +27,11 @@ p {
 }
 
 .page {
-  padding: 9rem var(--mobile-padding) ;
+  padding: 9rem var(--mobile-padding);
   display: flex;
   flex-direction: column;
   gap: 2rem 0;
+  height: fit-content;
   min-height: 90vh;
 }
 
