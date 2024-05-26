@@ -5,7 +5,6 @@ import style from './productCard.module.css';
 import LazyImage from '../lazy-image/LazyImage';
 import { Link } from 'react-router-dom';
 const ProductCard = ({ product, purpose }) => {
-
   return (
     <div
       className={`${style.product_card} ${
@@ -23,7 +22,9 @@ const ProductCard = ({ product, purpose }) => {
       </LazyLoad>
 
       <div className={style.product_info}>
-        <p className={style.name}>{product?.title}</p>
+        <Link to={`/products/${product.id}`} className={style.name}>
+          {product?.title}
+        </Link>
         <div className={style.product_price_and_rating}>
           <p className={style.price}>{`$${product?.price}`}</p>
           <p className={style.original_price}>

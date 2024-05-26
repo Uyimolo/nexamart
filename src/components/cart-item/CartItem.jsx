@@ -11,6 +11,7 @@ const CartItem = ({ product }) => {
 
   return (
     <div className={style.cart_item} key={product.id}>
+      {/* cart image */}
       <Link to={`/products/${product.id}`} className={style.cart_item_image}>
         <img src={product.image} alt={product.name} className={style.image} />
       </Link>
@@ -18,7 +19,7 @@ const CartItem = ({ product }) => {
         <p className={style.cart_item_name}>{product.title}</p>
         <div className={style.price_available}>
           <p className={style.cart_item_price}>
-            {`$${product.price}`}
+            {`$${product.price} |`}
             <span className={style.available}>In Stock</span>
           </p>
         </div>

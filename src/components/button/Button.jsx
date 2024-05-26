@@ -2,7 +2,6 @@
 import style from './button.module.css';
 
 import Icon from '../icon/Icon';
-
 const Button = ({ icon, text, color, width, iconSize, onClick, disabled, iconColor }) => {
   return (
     <button

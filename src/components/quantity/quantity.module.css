@@ -10,23 +10,20 @@
 .quantity_container {
   display: flex;
   width: fit-content;
-  justify-content: center;
   align-items: center;
-  border-radius: 0.4rem;
-  overflow: hidden;
 }
 
 .quantity_container p {
-  height: 2rem;
-  width: 4rem;
+  padding: 0 .5rem;
+  line-height: 1;
   text-align: center;
-  font-size: 1.2em;
 }
 
 .decrease,
 .increase {
   width: 1.5rem;
   height: 1.5rem;
+  padding: .5rem;
   background-color: var(--light-gray);
   display: grid;
   place-content: center;

@@ -19,6 +19,7 @@ const CreditCardDetails = ({
     setCardDetails({ ...cardDetails, [name]: formattedValue });
     validateInput(name, formattedValue);
   };
+
   const validateInput = (name, value) => {
     let error = '';
     switch (name) {
@@ -150,9 +151,7 @@ const CreditCardDetails = ({
             <span className={style.error}>{errors.cvv}</span>
           </div>
         </div>
-        {/* <div className={style.complete_order_button}>
-          <Button text='Submit Card Details' color='secondary' />
-        </div> */}
+        
       </form>
     </div>
   );

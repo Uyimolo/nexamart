@@ -25,6 +25,10 @@ const router = createBrowserRouter([
       {path: 'search'}
     ],
   },
+  {
+    path: '*',
+    errorElement: <h1>404 Not Found</h1>,
+  }
 ]);
 
 const queryClient = new QueryClient();

@@ -3,7 +3,7 @@ import style from './logo.module.css'
 
 const Logo = () => {
   return (
-    <Link>
+    <Link to='/'>
       <p className={style.logo}>Nexamart</p>
     </Link>
   );

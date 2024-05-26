@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import style from './categoryCard.module.css';
 import LazyLoad from 'react-lazyload';
 import LazyImage from '../lazy-image/LazyImage'
