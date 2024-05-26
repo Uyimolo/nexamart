@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import style from './expandedSubHeading.module.css'
 
 const ExpandedSubHeading = ({ text }) => {

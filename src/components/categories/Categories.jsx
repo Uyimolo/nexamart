@@ -26,7 +26,6 @@ const Categories = () => {
         {!isLoading &&
           categories
             .map((category) => (
-              // <CategoryCard key={category.id} category={category} />
               <Link to={`/category/${category}`} key={category} className={style.category}>{category.name}</Link>
             ))}
         {isLoading &&

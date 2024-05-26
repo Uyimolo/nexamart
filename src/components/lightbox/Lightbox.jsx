@@ -3,15 +3,15 @@ import { useEffect, useState } from 'react';
 import style from './lightbox.module.css';
 import Icon from '../icon/Icon';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { useMediaQuery } from 'react-responsive';
 
 const Lightbox = ({ imagesArray, error, isLoading }) => {
   const [currentImage, setCurrentImage] = useState(null);
+  const isDesktop = useMediaQuery({ minWidth: 1024 });
 
   useEffect(() => {
     if (imagesArray) setCurrentImage(imagesArray[0]);
   }, [imagesArray]);
-
-  // if (error) return;
 
   if (isLoading || error)
     return (
@@ -46,8 +46,8 @@ const Lightbox = ({ imagesArray, error, isLoading }) => {
                   key={image}
                   src={image}
                   alt='thumbnail'
-                  onClick={() => setCurrentImage(image)}
-                  onMouseOver={() => setCurrentImage(image)}
+                  onClick={() => !isDesktop && setCurrentImage(image)}
+                  onMouseOver={() => isDesktop && setCurrentImage(image)}
                   className={style.thumbnail}
                 />
               ))}

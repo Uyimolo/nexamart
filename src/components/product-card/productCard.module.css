@@ -3,7 +3,16 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+transition: 2s;
+}
 
+/* .product_card:hover .product_card_top {
+} */
+
+.product_card_top:hover .product_image img {
+  background-color: var(--light-gray);
+
+  width: 110%;
 }
 
 .product_card.carousel {
@@ -25,6 +34,7 @@
   width: 100%;
   object-fit: contain;
   aspect-ratio: 1/1;
+  transition: .5s;
 }
 
 .name {

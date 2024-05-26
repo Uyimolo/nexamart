@@ -3,66 +3,12 @@ import { useState } from 'react';
 import style from './billingForm.module.css';
 import Button from '../button/Button';
 import { toast } from 'react-toastify';
+import { billingForm } from '../../custom-hooks-and-arrays/billingFormData';
 
 const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*\.\w{2,3}$/;
 
 const BillingForm = ({ setBuyerData, handleStepsNavigation}) => {
-  const [billingFormGroups, setBillingFormGroups] = useState([
-    {
-      id: 'billing-name',
-      title: 'Full Name',
-      type: 'text',
-      label: 'Full Name',
-      value: 'John Doe',
-      error: '',
-      required: true,
-    },
-    {
-      id: 'billing-email',
-      title: 'Email Address',
-      type: 'email',
-      label: 'Email Address',
-      value: 'johndoe@example.com',
-      error: '',
-      required: true,
-    },
-    {
-      id: 'billing-address',
-      title: 'Billing Address',
-      type: 'text',
-      label: 'Street Address',
-      value: '123 Main Street',
-      error: '',
-      required: true,
-    },
-    {
-      id: 'billing-city',
-      title: 'City',
-      type: 'text',
-      label: 'Town/City',
-      value: 'Anytown',
-      error: '',
-      required: true,
-    },
-    {
-      id: 'billing-state',
-      title: 'State',
-      type: 'select',
-      label: 'State',
-      value: 'CA',
-      error: '',
-      required: true,
-    },
-    {
-      id: 'billing-country',
-      title: 'Country',
-      type: 'select',
-      label: 'Country',
-      value: 'US',
-      error: '',
-      required: true,
-    },
-  ]);
+  const [billingFormGroups, setBillingFormGroups] = useState(billingForm);
 
   const handleChange = (event) => {
     const { id, value } = event.target;
@@ -97,7 +43,7 @@ const BillingForm = ({ setBuyerData, handleStepsNavigation}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Check for any validation errors before proceeding
+    // Validation error check
     const hasErrors = billingFormGroups.some((group) => group.error !== '');
     if (hasErrors) {
       toast.error('Please fix all errors before submitting the form.');

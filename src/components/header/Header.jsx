@@ -76,6 +76,7 @@ const Header = () => {
       className={`${
         isScrolledDown && !showMenu ? style.scrolled_down : style.scrolled_up
       }`}>
+        {/* top section */}
       <div className={style.top}>
         <Logo />
 
@@ -96,7 +97,7 @@ const Header = () => {
           )}
         </div>
       </div>
-
+{/* bottom section */}
       <div className={style.bottom}>
         <div className={style.search}>
           <SearchInput

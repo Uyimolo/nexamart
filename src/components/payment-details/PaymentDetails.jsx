@@ -39,7 +39,6 @@ const PaymentDetails = ({ handleStepsNavigation }) => {
         handleStepsNavigation('next');
         clearCart();
       } else {
-        // Form contains validation errors
         toast.error('Please review your credit card information');
       }
     }

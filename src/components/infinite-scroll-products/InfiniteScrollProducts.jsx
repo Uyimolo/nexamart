@@ -10,7 +10,6 @@ import { useLocation } from 'react-router';
 const InfiniteScrollProducts = () => {
   const [products, setProducts] = useState([]);
   const [index, setIndex] = useState(0);
-  // const [hasNextPage, setHasNextPage] = useState(false);
   const location = useLocation();
 
   const fetchProducts = async ({ pageParam }) => {
@@ -38,7 +37,6 @@ const InfiniteScrollProducts = () => {
       },
     });
 
-  // console.log(index)
 
   useEffect(() => {
     if (data) {

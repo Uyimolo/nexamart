@@ -8,7 +8,15 @@ const Icon = ({ icon, onClick, size, color, title }) => {
     <FontAwesomeIcon
       className={`${style.icon} ${
         size === 'large' ? style.large : size === 'medium' ? style.medium : ''
-      } ${color === 'white' ? style.white : color === 'primary' ? style.primary :''} ${icon === faSpinner ? style.rotate : ''}`}
+      } 
+      ${
+        color === 'white'
+          ? style.white
+          : color === 'primary'
+          ? style.primary
+          : ''
+      }    
+      ${icon === faSpinner ? style.rotate : ''}`}
       icon={icon}
       onClick={onClick}
       title={title}

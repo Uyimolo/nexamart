@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import style from './lazyProductCard.module.css';
 
-const LazyProductCard = ({purpose, product}) => {
+const LazyProductCard = ({purpose}) => {
   return (
     <div
       className={`${style.product_card} ${
@@ -8,7 +9,6 @@ const LazyProductCard = ({purpose, product}) => {
       }`}>
       <div className={style.product_card_top}>
         <div className={style.product_image}>
-          {/* <img src={firstImage} alt={product?.title} /> */}
         </div>
       </div>
       <div className={style.product_info}>
