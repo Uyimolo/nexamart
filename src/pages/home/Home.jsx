@@ -24,24 +24,24 @@ const Home = () => {
     <div className='page home'>
       {/* main header */}
       <LargeHeader
-        image={mainHeaderImage}
+        image={secondHeaderImage}
         color='black'
-        title={`Men's shirts`}
-        text='5% off on every purchase made'
+        title='Mobile Accessories'
+        text='Unleash the full power of your mobile devices'
         cta='Shop now'
-        link={`/categories/mens-shirts`}
+        link='/categories/mobile-accessories'
       />
 
       <FlashSales />
 
       {/* <FeaturedProduct /> */}
       <LargeHeader
-        image={secondHeaderImage}
-        color='green'
-        title='Mobile Accessories'
-        text='Enhance your mobile experience.'
+        image={mainHeaderImage}
+        color='black'
+        title={`Men's shirts`}
+        text='Find your perfect fit (and style)'
         cta='Shop now'
-        link='/categories/mobile-accessories'
+        link={`/categories/mens-shirts`}
       />
 
       <ProductsList

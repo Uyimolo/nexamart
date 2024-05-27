@@ -14,7 +14,7 @@ const LargeHeader = ({ color, image, title, text, cta, link }) => {
         <h1>{text}</h1>
 
         <Link to={link} className={style.cta}>
-          <Button text={cta} icon={faArrowRight} />
+          <Button text={cta} icon={faArrowRight} variant='white' />
         </Link>
       </div>
       <div className={style.header_image}>

@@ -52,7 +52,6 @@ const FlashSales = () => {
             width: 1rem;
             height: 1rem;
             padding:.5rem;
-          
           }
       `,
       ],

@@ -51,11 +51,9 @@ transition: 2s;
   position: absolute;
   top: .3rem;
   right: .3rem;
-  /* width: 2.5rem;
-  height: 2.5rem; */
   border-radius: .3rem;
   padding:.2rem .5rem;
-  background-color: var(--secondary-light);
+  background-color: var(--text-black);
   color: var(--white);
   font-size: var(--small-text);
   display: flex;
@@ -85,7 +83,7 @@ transition: 2s;
 }
 
 .price {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-size: 0.9em;
 }
 

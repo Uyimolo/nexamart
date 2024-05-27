@@ -24,11 +24,10 @@ const SuccessfulPurchase = () => {
 
       <Link to='/' className={style.continue_shopping}>
         <Button
-          color='secondary'
           text='Continue Shopping'
           icon={faBagShopping}
-          iconColor='white'
           width='full'
+          variant='secondary'
         />
       </Link>
     </div>

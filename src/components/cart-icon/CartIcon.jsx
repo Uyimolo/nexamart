@@ -9,7 +9,7 @@ const CartIcon = () => {
 
   return (
     <Link to='/cart' className={style.cart_icon}>
-      <Icon icon={faCartShopping} size='large' />
+      <Icon icon={faCartShopping} size='large' title='Cart' />
       {cart && <p className={style.cart_volume}>{cart.length}</p>}
     </Link>
   );

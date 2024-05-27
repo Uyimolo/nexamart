@@ -24,12 +24,10 @@ const AddToCart = ({ product }) => {
     <Button
       icon={faCartPlus}
       text='Add To Cart'
-      color='secondary'
-      iconColor='white'
       width='full'
-      iconSize='large'
       onClick={handleAddToCart}
       disabled={product.stock === 0}
+      variant='secondary'
     />
   );
 };

@@ -1,5 +1,5 @@
 .heading_text {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   position: relative;
   padding: 0.3rem 1.7rem;
 }
@@ -11,7 +11,7 @@
   left: 0;
   height: 100%;
   width: 14px;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   transition: 1s;
   border-radius: 0.2rem;
 }
