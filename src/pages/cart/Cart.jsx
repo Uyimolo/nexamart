@@ -10,10 +10,9 @@ const Cart = () => {
   const cart = useCartSelectors.use.cart();
   let subTotal, totalItems;
   if (cart) {
-    subTotal = cart.reduce(
-      (total, product) => total + product.price * product.quantity,
-      0
-    ).toFixed(2);
+    subTotal = cart
+      .reduce((total, product) => total + product.price * product.quantity, 0)
+      .toFixed(2);
 
     totalItems = cart.reduce((total, product) => total + product.quantity, 0);
   }
@@ -46,8 +45,8 @@ const Cart = () => {
               <Link className={style.checkout_button} to='/checkout'>
                 <Button
                   text={`${'Proceed to checkout'} ($${subTotal})`}
-                  color='secondary'
                   width='full'
+                  // variant='secondary'
                 />
               </Link>
             </div>

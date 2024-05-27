@@ -11,14 +11,13 @@
   font-size: 0.9em;
   cursor: pointer;
   text-align: center;
+  text-wrap: nowrap;
+  transition: .5s;
 }
 
-.cta.secondary:hover {
-  background-color: var(--blue);
-}
-
-.cta:hover {
-  background-color: var(--very-light-gray);
+.cta.primary {
+  background-color: var(--primary-color);
+  color: var(--white);
 }
 
 .cta.secondary {
@@ -28,6 +27,10 @@
 
 .cta.full {
   width: 100%;
+}
+
+.cta:hover {
+  opacity: 0.8;
 }
 
 

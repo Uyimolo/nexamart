@@ -10,6 +10,7 @@ import { useLocation } from 'react-router';
 const InfiniteScrollProducts = () => {
   const [products, setProducts] = useState([]);
   const [index, setIndex] = useState(0);
+  const [hasNextPage, setHasNextPage] = useState(true);
   const location = useLocation();
 
   const fetchProducts = async ({ pageParam }) => {
@@ -20,7 +21,7 @@ const InfiniteScrollProducts = () => {
     return response.json();
   };
 
-  const { data, fetchNextPage, isLoading, isFetchingNextPage, hasNextPage } =
+  const { data, fetchNextPage, isLoading, isFetchingNextPage } =
     useInfiniteQuery({
       queryKey: ['paginatedContent', location.pathname],
       queryFn: fetchProducts,
@@ -32,11 +33,11 @@ const InfiniteScrollProducts = () => {
         ) {
           return allPages[allPages.length - 1].products.length * index;
         } else {
+          setHasNextPage(false);
           return null;
         }
       },
     });
-
 
   useEffect(() => {
     if (data) {

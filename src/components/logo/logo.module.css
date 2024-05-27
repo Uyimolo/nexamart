@@ -1,6 +1,12 @@
 .logo {
   font-weight: bold;
-  font-size: 1.7em;
+  font-size: 1.4em;
   width: fit-content ;
-  color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    font-size: 1.7em;
+  }
 }

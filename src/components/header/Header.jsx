@@ -11,6 +11,7 @@ import useReactQuery from '../../custom-hooks-and-arrays/useReactQuery';
 import SearchResults from '../search-results/SearchResults';
 import { useLocation } from 'react-router';
 import { toast } from 'react-toastify';
+import Button from '../button/Button';
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isScrolledDown, setIsScrolledDown] = useState(false);
@@ -40,8 +41,8 @@ const Header = () => {
   );
 
   useEffect(() => {
-    if ( data && data.total === 0) {
-     toast(`'${searchTerm.trim()}' doesn't match any product`);
+    if (data && data.total === 0) {
+      toast(`'${searchTerm.trim()}' doesn't match any product`);
     }
   }, [data, searchTerm]);
 
@@ -76,7 +77,7 @@ const Header = () => {
       className={`${
         isScrolledDown && !showMenu ? style.scrolled_down : style.scrolled_up
       }`}>
-        {/* top section */}
+      {/* top section */}
       <div className={style.top}>
         <Logo />
 
@@ -97,7 +98,7 @@ const Header = () => {
           )}
         </div>
       </div>
-{/* bottom section */}
+      {/* bottom section */}
       <div className={style.bottom}>
         <div className={style.search}>
           <SearchInput
@@ -106,11 +107,16 @@ const Header = () => {
             setSearchTerm={setSearchTerm}
           />
         </div>
+        <div className={style.header_btn}>
+          <Button text='Get started' variant='secondary' />
+        </div>
+
         <div className={style.icons}>
           <Icon icon={faHeart} size='large' />
           <CartIcon />
         </div>
       </div>
+
       {searchTerm.length > 0 && (
         <SearchResults
           results={data?.products}

@@ -91,7 +91,7 @@ const Navigation = ({ showMenu, setShowMenu }) => {
         </div>
       </div>
       <div className={style.nav_btn}>
-        <Button width='full' text='Get started' color='secondary' />
+        <Button width='full' text='Get started' variant='secondary' />
       </div>
     </nav>
   );

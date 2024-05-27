@@ -1,8 +1,10 @@
 :root {
-  --secondary-color: #db4444;
+  --primary-color: #db4444;
+  --secondary-color: #080808;
   --black: #000000;
   --text-black: #171717;
-  --secondary-light: #eb7e7ee5;
+  --text-gray: #666666;
+  --primary-light: #eb7e7ee5;
   --very-light-gray: #ebebeb;
   --light-gray: #b9b8b8;
   --green: #40bd6a;
@@ -10,7 +12,7 @@
   --gold: #ffad33;
   --white: #ffffff;
   --small-text: 0.8em;
-  --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.534);
+  --box-shadow: 2px 2px 5px #00000088;
   --mobile-padding: 1rem;
   --tablet-padding: 3rem;
   --desktop-padding: 5rem;

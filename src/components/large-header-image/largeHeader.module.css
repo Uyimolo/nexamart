@@ -37,6 +37,7 @@
 .large_header h1 {
   /* margin-bottom: 2rem; */
   font-size: 2em;
+  font-weight:bold;
 }
 
 .title {
@@ -45,10 +46,7 @@
 
 .cta {
   cursor: pointer;
-}
-
-.cta p {
-  border-bottom: 2px solid;
+  width: fit-content;
 }
 
 @media (min-width: 768px) {
